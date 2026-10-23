@@ -44,161 +44,171 @@
 }
 
 :root {
-  /* 圆角档位参考 MoviePilot：内容面 20px、表单 16px、控件 12px */
-  --radius: 1rem;
+  /* 圆角档位：粘土拟态需要更饱满的圆角，内容面 24px 左右 */
+  --radius: 1.15rem;
   color-scheme: light;
-  --background: oklch(0.968 0.005 255);
-  --foreground: oklch(0.295 0.012 282);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.295 0.012 282);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.295 0.012 282);
-  --primary: oklch(0.56 0.21 256);
+  --background: oklch(0.962 0.012 262);
+  --foreground: oklch(0.315 0.018 280);
+  --card: oklch(0.996 0.004 262);
+  --card-foreground: oklch(0.315 0.018 280);
+  --popover: oklch(0.999 0.003 262);
+  --popover-foreground: oklch(0.315 0.018 280);
+  --primary: oklch(0.575 0.165 256);
   --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.952 0.007 255);
-  --secondary-foreground: oklch(0.33 0.014 282);
-  --muted: oklch(0.958 0.006 255);
-  --muted-foreground: oklch(0.55 0.014 282);
-  --accent: oklch(0.955 0.022 240);
-  --accent-foreground: oklch(0.46 0.13 245);
-  --destructive: oklch(0.58 0.22 25);
-  --border: oklch(0.9 0.008 255);
-  --input: oklch(0.885 0.01 255);
-  --ring: oklch(0.66 0.15 235);
-  --chart-1: oklch(0.56 0.21 256);
-  --chart-2: oklch(0.68 0.15 225);
-  --chart-3: oklch(0.75 0.14 190);
-  --chart-4: oklch(0.72 0.15 165);
-  --chart-5: oklch(0.66 0.14 210);
-  --sidebar: oklch(0.978 0.005 255);
-  --sidebar-foreground: oklch(0.295 0.012 282);
-  --sidebar-primary: oklch(0.56 0.21 256);
+  --secondary: oklch(0.944 0.014 262);
+  --secondary-foreground: oklch(0.35 0.016 280);
+  --muted: oklch(0.948 0.012 262);
+  --muted-foreground: oklch(0.48 0.018 272);
+  --accent: oklch(0.94 0.03 250);
+  --accent-foreground: oklch(0.45 0.12 248);
+  --destructive: oklch(0.58 0.19 25);
+  --border: oklch(0.9 0.012 262);
+  --input: oklch(0.9 0.014 262);
+  --ring: oklch(0.64 0.14 250);
+  --chart-1: oklch(0.575 0.165 256);
+  --chart-2: oklch(0.68 0.13 225);
+  --chart-3: oklch(0.76 0.12 190);
+  --chart-4: oklch(0.74 0.13 165);
+  --chart-5: oklch(0.68 0.12 210);
+  --sidebar: oklch(0.975 0.01 262);
+  --sidebar-foreground: oklch(0.315 0.018 280);
+  --sidebar-primary: oklch(0.575 0.165 256);
   --sidebar-primary-foreground: oklch(0.99 0 0);
-  --sidebar-accent: oklch(0.955 0.022 240);
-  --sidebar-accent-foreground: oklch(0.46 0.13 245);
-  --sidebar-border: oklch(0.9 0.008 255);
-  --sidebar-ring: oklch(0.66 0.15 235);
-  /* 液态玻璃材质（参考 MoviePilot glass 主题的克制透光层） */
-  --glass-bg: oklch(1 0 0 / 62%);
-  --glass-bg-strong: oklch(1 0 0 / 80%);
-  --glass-border: oklch(0.35 0.02 282 / 9%);
-  --glass-border-raised: oklch(0.35 0.02 282 / 16%);
-  --glass-highlight: oklch(1 0 0 / 95%);
-  --glass-sheen: linear-gradient(
-    135deg,
-    oklch(1 0 0 / 45%),
-    transparent 30%,
-    oklch(1 0 0 / 12%) 72%,
-    transparent
+  --sidebar-accent: oklch(0.94 0.03 250);
+  --sidebar-accent-foreground: oklch(0.45 0.12 248);
+  --sidebar-border: oklch(0.9 0.012 262);
+  --sidebar-ring: oklch(0.64 0.14 250);
+  /* 粘土材质：哑光表面 + 顶部柔光 + 底部内阴影 + 蓬松外投影 */
+  --clay-surface: oklch(0.996 0.004 262);
+  --clay-surface-strong: oklch(1 0 0);
+  --clay-border: oklch(0.898 0.012 262);
+  --clay-border-raised: oklch(0.862 0.014 262);
+  --clay-rim: oklch(1 0 0 / 88%);
+  --clay-gloss: linear-gradient(
+    180deg,
+    oklch(1 0 0 / 46%) 0%,
+    oklch(1 0 0 / 10%) 36%,
+    transparent 62%
   );
-  --glass-shadow:
-    0 10px 28px oklch(0.35 0.03 260 / 10%),
-    inset 0 1px 0 var(--glass-highlight),
-    inset 0 -1px 0 oklch(0.35 0.03 260 / 5%);
-  --glass-shadow-raised:
-    0 16px 40px oklch(0.35 0.03 260 / 14%),
-    inset 0 1px 0 oklch(1 0 0 / 100%);
-  --glass-shadow-hover:
-    0 18px 44px oklch(0.35 0.03 260 / 16%),
-    inset 0 1px 0 oklch(1 0 0 / 100%);
-  --glass-navbar-shadow:
-    0 3px 12px oklch(0.35 0.03 260 / 8%),
-    inset 0 1px 0 oklch(1 0 0 / 90%);
-  --glass-control-bg: oklch(1 0 0 / 72%);
-  --glass-control-border: oklch(0.35 0.02 282 / 12%);
-  --glass-blur-card: 20px;
-  --glass-blur-panel: 24px;
-  --glass-blur-raised: 34px;
-  --glass-saturate: 155%;
-  /* 镜面折射层：左上角掠射高光，制造玻璃厚度 */
-  --glass-specular: radial-gradient(
-    120% 100% at -10% -10%,
-    oklch(1 0 0 / 55%) 0%,
-    oklch(1 0 0 / 10%) 30%,
-    transparent 55%
-  );
-  --glass-specular-opacity: 0.34;
-  --ambient-1: 14%;
-  --ambient-2: 12%;
-  --scene-opacity: 0.42;
+  --clay-gloss-opacity: 0.5;
+  --clay-shadow:
+    inset 0 2px 2px oklch(1 0 0 / 85%),
+    inset 0 -7px 14px -6px oklch(0.46 0.035 268 / 20%),
+    0 10px 20px -12px oklch(0.46 0.035 268 / 45%),
+    0 26px 44px -28px oklch(0.46 0.035 268 / 38%);
+  --clay-shadow-raised:
+    inset 0 2px 3px oklch(1 0 0 / 90%),
+    inset 0 -9px 18px -8px oklch(0.46 0.035 268 / 22%),
+    0 16px 30px -14px oklch(0.46 0.035 268 / 50%),
+    0 40px 64px -34px oklch(0.46 0.035 268 / 40%);
+  --clay-shadow-hover:
+    inset 0 2px 3px oklch(1 0 0 / 95%),
+    inset 0 -10px 20px -8px oklch(0.46 0.035 268 / 24%),
+    0 20px 34px -14px oklch(0.46 0.035 268 / 54%),
+    0 44px 68px -34px oklch(0.46 0.035 268 / 44%);
+  --clay-shadow-nav:
+    inset 0 1px 1px oklch(1 0 0 / 90%),
+    inset 0 -3px 8px -4px oklch(0.46 0.035 268 / 16%),
+    0 6px 14px -8px oklch(0.46 0.035 268 / 32%);
+  --clay-shadow-sunken:
+    inset 4px 4px 9px oklch(0.46 0.035 268 / 18%),
+    inset -4px -4px 9px oklch(1 0 0 / 85%);
+  --clay-shadow-flat:
+    inset 0 1px 0 oklch(1 0 0 / 75%),
+    0 3px 6px -4px oklch(0.46 0.035 268 / 30%);
+  --clay-control-bg: oklch(0.947 0.01 262);
+  --clay-control-border: oklch(0.885 0.014 262);
+  --clay-btn-primary-shadow:
+    inset 0 2px 2px oklch(1 0 0 / 40%),
+    inset 0 -5px 10px -3px oklch(0.18 0.05 262 / 26%),
+    0 10px 18px -8px color-mix(in oklch, var(--primary) 60%, transparent),
+    0 3px 6px -3px oklch(0.46 0.035 268 / 40%);
+  --ambient-1: 18%;
+  --ambient-2: 14%;
+  --scene-opacity: 0.55;
 }
 
 .dark {
   color-scheme: dark;
-  --background: oklch(0.19 0.032 257);
-  --foreground: oklch(0.965 0.006 250);
-  --card: oklch(0.255 0.032 257);
-  --card-foreground: oklch(0.965 0.006 250);
-  --popover: oklch(0.305 0.038 257);
-  --popover-foreground: oklch(0.965 0.006 250);
-  --primary: oklch(0.63 0.19 256);
+  --background: oklch(0.215 0.026 264);
+  --foreground: oklch(0.96 0.006 260);
+  --card: oklch(0.272 0.028 264);
+  --card-foreground: oklch(0.96 0.006 260);
+  --popover: oklch(0.305 0.03 264);
+  --popover-foreground: oklch(0.96 0.006 260);
+  --primary: oklch(0.665 0.16 255);
   --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.29 0.028 257);
-  --secondary-foreground: oklch(0.93 0.008 250);
-  --muted: oklch(0.265 0.026 257);
-  --muted-foreground: oklch(0.8 0.014 250);
-  --accent: oklch(0.315 0.045 240);
-  --accent-foreground: oklch(0.9 0.05 205);
+  --secondary: oklch(0.305 0.026 264);
+  --secondary-foreground: oklch(0.93 0.008 260);
+  --muted: oklch(0.288 0.024 264);
+  --muted-foreground: oklch(0.8 0.014 260);
+  --accent: oklch(0.325 0.04 250);
+  --accent-foreground: oklch(0.92 0.045 205);
   --destructive: oklch(0.7 0.16 22);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 14%);
+  --border: oklch(0.355 0.026 264);
+  --input: oklch(0.345 0.026 264);
   --ring: oklch(0.78 0.13 205);
-  --chart-1: oklch(0.64 0.19 254);
-  --chart-2: oklch(0.76 0.14 225);
-  --chart-3: oklch(0.82 0.13 190);
-  --chart-4: oklch(0.8 0.14 165);
-  --chart-5: oklch(0.74 0.13 210);
-  --sidebar: oklch(0.175 0.028 257);
-  --sidebar-foreground: oklch(0.94 0.006 250);
-  --sidebar-primary: oklch(0.63 0.19 256);
+  --chart-1: oklch(0.665 0.16 255);
+  --chart-2: oklch(0.76 0.13 225);
+  --chart-3: oklch(0.82 0.12 190);
+  --chart-4: oklch(0.8 0.13 165);
+  --chart-5: oklch(0.74 0.12 210);
+  --sidebar: oklch(0.2 0.024 264);
+  --sidebar-foreground: oklch(0.94 0.006 260);
+  --sidebar-primary: oklch(0.665 0.16 255);
   --sidebar-primary-foreground: oklch(0.99 0 0);
-  --sidebar-accent: oklch(1 0 0 / 7%);
+  --sidebar-accent: oklch(0.3 0.03 255);
   --sidebar-accent-foreground: oklch(0.92 0.045 205);
-  --sidebar-border: oklch(1 0 0 / 8%);
+  --sidebar-border: oklch(0.34 0.024 264);
   --sidebar-ring: oklch(0.78 0.13 205);
-  /* 液态玻璃材质：低不透明度、细白边、单层掠射高光 */
-  --glass-bg: oklch(0.245 0.036 257 / 42%);
-  --glass-bg-strong: oklch(0.215 0.032 257 / 64%);
-  --glass-border: oklch(1 0 0 / 12%);
-  --glass-border-raised: oklch(1 0 0 / 20%);
-  --glass-highlight: oklch(1 0 0 / 20%);
-  --glass-sheen: linear-gradient(
-    135deg,
-    oklch(1 0 0 / 9%),
-    transparent 28%,
-    oklch(1 0 0 / 3%) 72%,
-    transparent
+  /* 粘土材质（暗色）：表面抬高半档，靠白色柔光 + 深色内阴影塑造厚度 */
+  --clay-surface: oklch(0.288 0.026 264);
+  --clay-surface-strong: oklch(0.312 0.028 264);
+  --clay-border: oklch(0.372 0.026 264);
+  --clay-border-raised: oklch(0.42 0.03 264);
+  --clay-rim: oklch(1 0 0 / 14%);
+  --clay-gloss: linear-gradient(
+    180deg,
+    oklch(1 0 0 / 12%) 0%,
+    oklch(1 0 0 / 4%) 36%,
+    transparent 62%
   );
-  --glass-shadow:
-    0 10px 28px oklch(0.08 0.02 258 / 32%),
-    inset 0 1px 0 var(--glass-highlight),
-    inset 0 -1px 0 oklch(0.08 0.02 258 / 18%);
-  --glass-shadow-raised:
-    0 16px 40px oklch(0.08 0.02 258 / 40%),
-    inset 0 1px 0 oklch(1 0 0 / 24%);
-  --glass-shadow-hover:
-    0 18px 44px oklch(0.08 0.02 258 / 46%),
-    inset 0 1px 0 oklch(1 0 0 / 28%);
-  --glass-navbar-shadow:
-    0 3px 12px oklch(0.08 0.02 258 / 26%),
-    inset 0 1px 0 oklch(1 0 0 / 10%);
-  --glass-control-bg: oklch(1 0 0 / 7%);
-  --glass-control-border: oklch(1 0 0 / 16%);
-  --glass-blur-card: 20px;
-  --glass-blur-panel: 24px;
-  --glass-blur-raised: 34px;
-  --glass-saturate: 145%;
-  /* 暗色镜面：顶部冷白掠射，边缘保持细白高光 */
-  --glass-specular: radial-gradient(
-    125% 105% at -5% -8%,
-    oklch(1 0 0 / 16%) 0%,
-    oklch(1 0 0 / 5%) 30%,
-    transparent 58%
-  );
-  --glass-specular-opacity: 0.85;
-  --ambient-1: 18%;
-  --ambient-2: 14%;
-  --scene-opacity: 0.62;
+  --clay-gloss-opacity: 0.9;
+  --clay-shadow:
+    inset 0 1px 1px oklch(1 0 0 / 14%),
+    inset 0 -7px 14px -6px oklch(0.03 0.02 265 / 50%),
+    0 10px 20px -12px oklch(0.02 0.02 265 / 70%),
+    0 26px 44px -28px oklch(0.02 0.02 265 / 65%);
+  --clay-shadow-raised:
+    inset 0 2px 2px oklch(1 0 0 / 18%),
+    inset 0 -9px 18px -8px oklch(0.03 0.02 265 / 55%),
+    0 16px 30px -14px oklch(0.02 0.02 265 / 78%),
+    0 40px 64px -34px oklch(0.02 0.02 265 / 72%);
+  --clay-shadow-hover:
+    inset 0 2px 2px oklch(1 0 0 / 22%),
+    inset 0 -10px 20px -8px oklch(0.03 0.02 265 / 58%),
+    0 20px 34px -14px oklch(0.02 0.02 265 / 82%),
+    0 44px 68px -34px oklch(0.02 0.02 265 / 76%);
+  --clay-shadow-nav:
+    inset 0 1px 1px oklch(1 0 0 / 12%),
+    inset 0 -3px 8px -4px oklch(0.03 0.02 265 / 45%),
+    0 6px 14px -8px oklch(0.02 0.02 265 / 65%);
+  --clay-shadow-sunken:
+    inset 4px 4px 9px oklch(0.03 0.02 265 / 55%),
+    inset -4px -4px 9px oklch(1 0 0 / 7%);
+  --clay-shadow-flat:
+    inset 0 1px 0 oklch(1 0 0 / 10%),
+    0 3px 6px -4px oklch(0.02 0.02 265 / 60%);
+  --clay-control-bg: oklch(0.248 0.024 264);
+  --clay-control-border: oklch(0.36 0.026 264);
+  --clay-btn-primary-shadow:
+    inset 0 2px 2px oklch(1 0 0 / 22%),
+    inset 0 -5px 10px -3px oklch(0.05 0.03 262 / 55%),
+    0 10px 18px -8px color-mix(in oklch, var(--primary) 45%, transparent),
+    0 3px 6px -3px oklch(0.02 0.02 265 / 70%);
+  --ambient-1: 20%;
+  --ambient-2: 16%;
+  --scene-opacity: 0.8;
 }
 
 @layer utilities {
@@ -255,7 +265,7 @@
       radial-gradient(64rem 46rem at 94% -4%, color-mix(in oklch, var(--chart-3) var(--ambient-2), transparent), transparent 62%);
     background-attachment: fixed;
   }
-  /* 背景景深层：只保留一层很淡的冷色景深，让玻璃采样到光而非色块 */
+  /* 背景柔光层：黏土底上晕开的柔色块，提供蓬松的体积感 */
   body::before {
     content: "";
     position: fixed;
@@ -263,20 +273,20 @@
     z-index: 0;
     pointer-events: none;
     background-image:
-      radial-gradient(40rem 34rem at 20% 16%, color-mix(in oklch, var(--chart-3) 16%, transparent), transparent 72%),
-      radial-gradient(46rem 36rem at 82% 10%, color-mix(in oklch, var(--primary) 18%, transparent), transparent 74%),
-      radial-gradient(52rem 40rem at 56% 96%, color-mix(in oklch, var(--chart-2) 12%, transparent), transparent 76%);
-    filter: blur(90px) saturate(112%);
+      radial-gradient(40rem 34rem at 20% 16%, color-mix(in oklch, var(--chart-3) 14%, transparent), transparent 72%),
+      radial-gradient(46rem 36rem at 82% 10%, color-mix(in oklch, var(--primary) 16%, transparent), transparent 74%),
+      radial-gradient(52rem 40rem at 56% 96%, color-mix(in oklch, var(--chart-2) 11%, transparent), transparent 76%);
+    filter: blur(90px) saturate(108%);
     opacity: var(--scene-opacity);
   }
-  /* 磨砂颗粒：与 MoviePilot 一致，用极轻的噪点收住大面积渐变 */
+  /* 黏土颗粒：极轻的噪点，让哑光表面不呆板 */
   body::after {
     content: "";
     position: fixed;
     inset: 0;
     z-index: 9999;
     pointer-events: none;
-    opacity: 0.025;
+    opacity: 0.03;
     mix-blend-mode: overlay;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.7'/%3E%3C/svg%3E");
     background-size: 180px 180px;
@@ -299,130 +309,114 @@
   }
 }
 
-/* 浅色模式：背景保持干净的单色底，不使用径向渐变与彩色景深 */
-html:not(.dark) body {
-  background-image: none;
-}
-
+/* 浅色模式：柔光层压得更淡，保持黏土底的通透与干净 */
 html:not(.dark) body::before {
-  display: none;
+  opacity: 0.45;
 }
 
-/* 侧边栏选中项：浅色用浅主色底 + 深主色文字，暗色用主色渐变底 + 亮文字 */
+/* 侧边栏选中项：凸起的黏土胶囊，浅色浅蓝、暗色深蓝都保持文字可读 */
 [data-slot="sidebar-menu-button"][data-active="true"] {
-  /* 浅色下用纯色平铺，不要渐变 */
-  background-color: color-mix(in oklch, var(--primary) 14%, transparent);
+  background-color: color-mix(in oklch, var(--primary) 16%, var(--clay-surface));
   background-image: none;
+  border-radius: 0.9rem;
   box-shadow:
-    inset 0 1px 0 0 oklch(1 0 0 / 40%),
-    inset 0 0 0 1px color-mix(in oklch, var(--primary) 32%, transparent);
+    inset 0 2px 2px oklch(1 0 0 / 80%),
+    inset 0 -4px 10px -4px oklch(0.46 0.035 268 / 20%),
+    0 3px 8px -4px oklch(0.46 0.035 268 / 40%);
   /* 浅色下选中态是浅蓝底，文字必须压深才可读 */
-  color: color-mix(in oklch, var(--primary) 74%, black);
+  color: color-mix(in oklch, var(--primary) 72%, black);
 }
 
 [data-slot="sidebar-menu-button"][data-active="true"] svg {
   color: color-mix(in oklch, var(--primary) 85%, black);
 }
 
-/* 暗色下选中态是深底透光，文字回到亮色 */
+/* 暗色下选中态也是凸起胶囊，只是用深色底 + 亮文字 */
 .dark [data-slot="sidebar-menu-button"][data-active="true"] {
-  background-color: transparent;
-  background-image: linear-gradient(
-    90deg,
-    color-mix(in oklch, var(--primary) 22%, transparent),
-    color-mix(in oklch, var(--primary) 46%, transparent)
-  );
+  background-color: color-mix(in oklch, var(--primary) 30%, var(--clay-surface));
+  background-image: none;
   box-shadow:
-    inset 0 1px 0 0 oklch(1 0 0 / 14%),
-    inset 0 0 0 1px color-mix(in oklch, var(--primary) 36%, transparent);
-  color: color-mix(in oklch, var(--primary) 45%, white);
+    inset 0 1px 2px oklch(1 0 0 / 18%),
+    inset 0 -5px 12px -5px oklch(0.02 0.02 265 / 60%),
+    0 3px 8px -4px oklch(0.02 0.02 265 / 70%);
+  color: color-mix(in oklch, var(--primary) 40%, white);
 }
 
 .dark [data-slot="sidebar-menu-button"][data-active="true"] svg {
   color: color-mix(in oklch, var(--chart-3) 55%, white);
 }
 
-/* ============ 液态玻璃 ============ */
+/* ============ 粘土拟态 ============ */
 
 /* 设置页/通知页等使用 <section class="border rounded-*"> 的面板 */
 section[class*="border"] {
   position: relative;
-  background-color: var(--glass-bg);
-  background-image: var(--glass-sheen);
-  border-color: var(--glass-border);
-  -webkit-backdrop-filter: blur(var(--glass-blur-panel)) saturate(var(--glass-saturate));
-  backdrop-filter: blur(var(--glass-blur-panel)) saturate(var(--glass-saturate));
-  box-shadow: var(--glass-shadow);
+  background-color: var(--clay-surface);
+  border-color: var(--clay-border);
+  box-shadow: var(--clay-shadow);
 }
 
-/* 所有语义化背景容器统一为半透明玻璃，避免页面里残留不透明色块 */
+/* 语义化背景容器统一为哑光黏土面，内部不再透出底层颜色 */
 [class~="bg-card"],
 [class~="bg-popover"],
 [class*="bg-background"]:not(body):not(html) {
-  background-color: var(--glass-bg);
-  border-color: var(--glass-border);
-  -webkit-backdrop-filter: blur(var(--glass-blur-card)) saturate(var(--glass-saturate));
-  backdrop-filter: blur(var(--glass-blur-card)) saturate(var(--glass-saturate));
+  background-color: var(--clay-surface);
+  border-color: var(--clay-border);
 }
 
-/* 面板内的行卡片：平铺分组，不再叠加第二层背景采样与阴影 */
+/* 面板内的行卡片：浅浅压进黏土里，只留一层薄边和贴地阴影 */
 div[class*="rounded-md"][class*="border"][class*="p-3"],
 div[class*="rounded-md"][class*="border"][class*="p-4"],
 div[class*="rounded-lg"][class*="border"][class*="p-3"],
 div[class*="rounded-lg"][class*="border"][class*="p-4"] {
-  background-color: color-mix(in oklch, var(--glass-bg) 68%, transparent);
-  border-color: var(--glass-border);
-  box-shadow: inset 0 1px 0 0 var(--glass-highlight);
+  background-color: color-mix(in oklch, var(--clay-surface) 74%, var(--muted));
+  border-color: var(--clay-border);
+  box-shadow: var(--clay-shadow-flat);
 }
 
-/* 次级背景（徽标、表头、悬停态）保持透明感，但不叠加模糊，避免性能开销 */
+/* 次级背景（徽标、表头、悬停态）：调成柔和的粉彩面，而不是透明玻璃 */
 [class*="bg-muted"]:not([data-slot="skeleton"]) {
-  background-color: color-mix(in oklch, var(--muted) 55%, transparent);
+  background-color: color-mix(in oklch, var(--muted) 72%, var(--clay-surface));
 }
 
 [class*="bg-accent"] {
-  background-color: color-mix(in oklch, var(--accent) 72%, transparent);
+  background-color: color-mix(in oklch, var(--accent) 80%, var(--clay-surface));
 }
 
 [class*="bg-secondary"] {
-  background-color: color-mix(in oklch, var(--secondary) 68%, transparent);
+  background-color: color-mix(in oklch, var(--secondary) 78%, var(--clay-surface));
 }
 
-/* 卡片：单层透光表面 + 顶部高光 + 柔和投影，悬停只增强受光 */
+/* 卡片：凸起的黏土块，顶部柔光 + 底部内阴影 + 蓬松投影 */
 [data-slot="card"] {
   position: relative;
-  background-color: var(--glass-bg);
-  background-image: var(--glass-sheen);
-  border-color: var(--glass-border);
-  -webkit-backdrop-filter: blur(var(--glass-blur-card)) saturate(var(--glass-saturate));
-  backdrop-filter: blur(var(--glass-blur-card)) saturate(var(--glass-saturate));
-  box-shadow: var(--glass-shadow);
+  background-color: var(--clay-surface);
+  border-color: var(--clay-border);
+  box-shadow: var(--clay-shadow);
   transition:
-    box-shadow 180ms cubic-bezier(0.2, 0.8, 0.2, 1),
-    border-color 180ms cubic-bezier(0.2, 0.8, 0.2, 1),
-    background-color 180ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    box-shadow 220ms cubic-bezier(0.34, 1.4, 0.64, 1),
+    border-color 220ms ease,
+    transform 220ms cubic-bezier(0.34, 1.4, 0.64, 1);
 }
 
 @media (hover: hover) {
   [data-slot="card"]:hover {
-    border-color: var(--glass-border-raised);
-    box-shadow: var(--glass-shadow-hover);
+    border-color: var(--clay-border-raised);
+    box-shadow: var(--clay-shadow-hover);
+    transform: translateY(-2px);
   }
 }
 
-/* 数据表格：与卡片共用同一套玻璃表面，表头叠一层极轻的副色做层级区分 */
+/* 数据表格：与卡片共用同一套黏土表面，表头压一层浅色做层级区分 */
 [data-slot="data-table"] {
   position: relative;
-  background-color: var(--glass-bg);
-  background-image: var(--glass-sheen);
-  border-color: var(--glass-border);
-  -webkit-backdrop-filter: blur(var(--glass-blur-card)) saturate(var(--glass-saturate));
-  backdrop-filter: blur(var(--glass-blur-card)) saturate(var(--glass-saturate));
-  box-shadow: var(--glass-shadow);
+  background-color: var(--clay-surface);
+  border-color: var(--clay-border);
+  box-shadow: var(--clay-shadow);
 }
 
 [data-slot="table-header"] {
-  background-color: color-mix(in oklch, var(--muted) 46%, transparent);
+  background-color: color-mix(in oklch, var(--muted) 62%, var(--clay-surface));
 }
 
 [data-slot="table-head"] {
@@ -432,138 +426,84 @@ div[class*="rounded-lg"][class*="border"][class*="p-4"] {
 }
 
 [data-slot="table-row"] {
-  border-color: color-mix(in oklch, var(--foreground) 7%, transparent);
+  border-color: color-mix(in oklch, var(--foreground) 8%, transparent);
 }
 
 [data-slot="table-row"]:hover {
-  background-color: color-mix(in oklch, var(--primary) 6%, transparent);
+  background-color: color-mix(in oklch, var(--primary) 8%, transparent);
 }
 
 [data-slot="table-row"][data-state="selected"] {
-  background-color: color-mix(in oklch, var(--primary) 10%, transparent);
+  background-color: color-mix(in oklch, var(--primary) 13%, transparent);
 }
 
-/* 提示条 / 空状态：统一为轻玻璃底，避免出现不透明的灰色块 */
+/* 提示条 / 空状态：轻凹陷的黏土底 */
 [class*="bg-muted/30"] {
-  background-color: color-mix(in oklch, var(--glass-bg) 72%, transparent);
-  border-color: var(--glass-border);
+  background-color: color-mix(in oklch, var(--clay-surface) 70%, var(--muted));
+  border-color: var(--clay-border);
 }
 
-/* 顶栏：悬浮玻璃条，使用更轻的投影避免与正文形成内陷感 */
+/* 顶栏：厚实的黏土条，底部一道柔和落地影 */
 .app-header {
-  background-color: var(--glass-bg-strong);
-  background-image: var(--glass-sheen);
-  border-color: var(--glass-border-raised);
-  -webkit-backdrop-filter: blur(var(--glass-blur-raised)) saturate(var(--glass-saturate));
-  backdrop-filter: blur(var(--glass-blur-raised)) saturate(var(--glass-saturate));
-  box-shadow: var(--glass-navbar-shadow);
+  background-color: var(--clay-surface-strong);
+  border-color: var(--clay-border);
+  box-shadow: var(--clay-shadow-nav);
 }
 
-/* 侧边栏：常驻玻璃背板，边缘只留一道细高光 */
+/* 侧边栏：常驻黏土背板，右缘一道压痕 */
 [data-slot="sidebar-inner"] {
-  background-color: var(--glass-bg-strong);
-  background-image: var(--glass-sheen);
-  -webkit-backdrop-filter: blur(var(--glass-blur-raised)) saturate(var(--glass-saturate));
-  backdrop-filter: blur(var(--glass-blur-raised)) saturate(var(--glass-saturate));
-  box-shadow: inset -1px 0 0 0 var(--glass-border-raised);
+  background-color: var(--clay-surface-strong);
+  box-shadow:
+    inset 0 1px 0 var(--clay-rim),
+    inset -1px 0 0 0 var(--clay-border),
+    6px 0 20px -18px oklch(0.3 0.03 265 / 35%);
 }
 
 [data-slot="sidebar-container"] {
-  border-color: var(--glass-border);
+  border-color: var(--clay-border);
 }
 
-/* 弹窗 / 下拉 / 菜单：更强的吸收层与更高一档的投影 */
+/* 弹窗 / 下拉 / 菜单：更高一档的凸起，投影更蓬松 */
 [data-slot="dialog-content"],
 [data-slot="alert-dialog-content"],
 [data-slot="select-content"],
 [data-slot="menubar-content"],
 [data-slot="sheet-content"] {
-  background-color: var(--glass-bg-strong);
-  background-image: var(--glass-sheen);
-  border-color: var(--glass-border-raised);
-  -webkit-backdrop-filter: blur(26px) saturate(var(--glass-saturate));
-  backdrop-filter: blur(26px) saturate(var(--glass-saturate));
-  box-shadow: var(--glass-shadow-raised);
+  background-color: var(--clay-surface-strong);
+  border-color: var(--clay-border-raised);
+  box-shadow: var(--clay-shadow-raised);
 }
 
-/* 遮罩：轻微毛玻璃，突出前景玻璃层 */
+/* 遮罩：哑光压暗，不模糊背景 */
 [data-slot="dialog-overlay"],
 [data-slot="alert-dialog-overlay"],
 [data-slot="sheet-overlay"] {
-  background-color: oklch(0.12 0.02 258 / 42%);
-  -webkit-backdrop-filter: blur(3px);
-  backdrop-filter: blur(3px);
+  background-color: oklch(0.22 0.03 265 / 55%);
 }
 
-/* 输入框：透光底色 + 上下内沿高光，不做第二层背景采样 */
+/* 输入框：压进黏土里的凹槽 */
 [data-slot="input"],
 [data-slot="textarea"],
 [data-slot="select-trigger"] {
-  background-color: var(--glass-control-bg);
-  border-color: var(--glass-control-border);
-  box-shadow:
-    inset 0 1px 0 0 var(--glass-highlight),
-    inset 0 -1px 0 0 oklch(0.08 0.02 258 / 12%);
+  background-color: var(--clay-control-bg);
+  border-color: var(--clay-control-border);
+  box-shadow: var(--clay-shadow-sunken);
 }
 
-/* 主按钮：主色实心渐变 + 内沿高光，辉光收敛到一层 */
+/* 主按钮：有厚度的黏土块，受光在上、暗面在下 */
 [data-slot="button"].bg-primary {
-  background-image:
-    linear-gradient(180deg, oklch(1 0 0 / 18%) 0%, transparent 62%),
-    linear-gradient(180deg, var(--primary) 0%, color-mix(in oklch, var(--primary) 82%, black) 100%);
-  box-shadow:
-    inset 0 1px 0 0 oklch(1 0 0 / 26%),
-    inset 0 -1px 0 0 oklch(0 0 0 / 16%),
-    0 6px 18px -10px color-mix(in oklch, var(--primary) 55%, transparent);
+  background-image: linear-gradient(
+    180deg,
+    color-mix(in oklch, var(--primary) 92%, white) 0%,
+    var(--primary) 58%,
+    color-mix(in oklch, var(--primary) 88%, black) 100%
+  );
+  box-shadow: var(--clay-btn-primary-shadow);
 }
 
-/* 不支持 backdrop-filter 时退回不透明材质，保证可读性 */
-@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  section[class*="border"],
-  [data-slot="card"],
-  .app-header {
-    background-color: var(--card);
-  }
-  [data-slot="dialog-content"],
-  [data-slot="alert-dialog-content"],
-  [data-slot="select-content"],
-  [data-slot="menubar-content"],
-  [data-slot="sheet-content"] {
-    background-color: var(--popover);
-  }
-}
+/* ============ 粘土拟态 v2：厚度 / 柔光 / 按压 ============ */
 
-/* 系统要求降低透明度时，去掉采样与景深，回到实色表面 */
-@media (prefers-reduced-transparency: reduce) {
-  body::before {
-    display: none;
-  }
-  section[class*="border"],
-  [class~="bg-card"],
-  [class~="bg-popover"],
-  [data-slot="card"],
-  .app-header,
-  [data-slot="sidebar-inner"] {
-    background-color: var(--card) !important;
-    background-image: none !important;
-    -webkit-backdrop-filter: none !important;
-    backdrop-filter: none !important;
-  }
-  [data-slot="dialog-content"],
-  [data-slot="alert-dialog-content"],
-  [data-slot="select-content"],
-  [data-slot="menubar-content"],
-  [data-slot="sheet-content"] {
-    background-color: var(--popover) !important;
-    background-image: none !important;
-    -webkit-backdrop-filter: none !important;
-    backdrop-filter: none !important;
-  }
-}
-
-/* ============ 液态玻璃 v2：镜面折射 / 厚度 / 景深 ============ */
-
-/* 玻璃容器建立独立层叠上下文，避免镜面层与内部阴影互相干扰 */
+/* 粘土容器建立独立层叠上下文，让顶部柔光不盖住内部阴影 */
 [data-slot="card"],
 [data-slot="data-table"],
 [data-slot="dialog-content"],
@@ -574,16 +514,16 @@ div[class*="rounded-lg"][class*="border"][class*="p-4"] {
   isolation: isolate;
 }
 
-/* 卡片镜面：左上角掠射高光，悬停时受光增强，形成玻璃厚度 */
+/* 卡片顶面柔光：模拟黏土被上方光源照亮的一层薄亮膜 */
 [data-slot="card"]::after {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
   pointer-events: none;
-  background: var(--glass-specular);
-  opacity: var(--glass-specular-opacity);
-  transition: opacity 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  background: var(--clay-gloss);
+  opacity: var(--clay-gloss-opacity);
+  transition: opacity 220ms ease;
 }
 
 @media (hover: hover) {
@@ -592,7 +532,7 @@ div[class*="rounded-lg"][class*="border"][class*="p-4"] {
   }
 }
 
-/* 弹窗/抽屉：镜面更亮一档，强化前景层级 */
+/* 弹窗 / 抽屉：顶面柔光更亮一档，强化前景层级 */
 [data-slot="dialog-content"]::before,
 [data-slot="alert-dialog-content"]::before,
 [data-slot="sheet-content"]::before {
@@ -601,11 +541,11 @@ div[class*="rounded-lg"][class*="border"][class*="p-4"] {
   inset: 0;
   border-radius: inherit;
   pointer-events: none;
-  background: var(--glass-specular);
-  opacity: calc(var(--glass-specular-opacity) + 0.15);
+  background: var(--clay-gloss);
+  opacity: calc(var(--clay-gloss-opacity) + 0.12);
 }
 
-/* 顶栏：底部一道冷色细光，与正文拉开层级 */
+/* 顶栏：底部一道黏土压边，与正文拉开层级 */
 .app-header {
   position: relative;
 }
@@ -613,43 +553,41 @@ div[class*="rounded-lg"][class*="border"][class*="p-4"] {
 .app-header::after {
   content: "";
   position: absolute;
-  inset: auto 0 -1px;
-  height: 1px;
+  inset: auto 12px -1px;
+  height: 2px;
+  border-radius: 999px;
   pointer-events: none;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    color-mix(in oklch, var(--primary) 45%, transparent),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, var(--clay-border-raised), transparent);
 }
 
-/* 侧边栏选中项：左侧光条 + 外发光 */
+/* 侧边栏选中项：左侧小凸点，像捏出来的黏土圆珠 */
 [data-slot="sidebar-menu-button"] {
   position: relative;
   transition:
-    background-color 200ms cubic-bezier(0.2, 0.8, 0.2, 1),
-    box-shadow 200ms cubic-bezier(0.2, 0.8, 0.2, 1),
-    color 200ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    background-color 200ms cubic-bezier(0.34, 1.4, 0.64, 1),
+    box-shadow 200ms cubic-bezier(0.34, 1.4, 0.64, 1),
+    color 200ms cubic-bezier(0.34, 1.4, 0.64, 1);
 }
 
 [data-slot="sidebar-menu-button"][data-active="true"]::before {
   content: "";
   position: absolute;
-  left: 2px;
+  left: 3px;
   top: 50%;
   translate: 0 -50%;
-  width: 3px;
-  height: 56%;
+  width: 4px;
+  height: 52%;
   border-radius: 999px;
   pointer-events: none;
   background: var(--primary);
-  box-shadow: 0 0 12px color-mix(in oklch, var(--primary) 65%, transparent);
+  box-shadow:
+    inset 0 1px 1px oklch(1 0 0 / 45%),
+    0 2px 4px -1px color-mix(in oklch, var(--primary) 60%, transparent);
 }
 
-/* 数据表：表头微光与行悬停渐变，替代生硬的整行色块 */
+/* 数据表：表头柔光与行悬停的柔色晕染 */
 [data-slot="table-header"] {
-  background-image: linear-gradient(180deg, oklch(1 0 0 / 6%), transparent);
+  background-image: linear-gradient(180deg, oklch(1 0 0 / 10%), transparent);
 }
 
 [data-slot="table-row"] {
@@ -659,7 +597,7 @@ div[class*="rounded-lg"][class*="border"][class*="p-4"] {
 [data-slot="table-row"]:hover {
   background-image: linear-gradient(
     90deg,
-    color-mix(in oklch, var(--primary) 9%, transparent),
+    color-mix(in oklch, var(--primary) 10%, transparent),
     transparent 45%
   );
 }
@@ -667,14 +605,19 @@ div[class*="rounded-lg"][class*="border"][class*="p-4"] {
 [data-slot="table-row"][data-state="selected"] {
   background-image: linear-gradient(
     90deg,
-    color-mix(in oklch, var(--primary) 16%, transparent),
-    color-mix(in oklch, var(--primary) 6%, transparent)
+    color-mix(in oklch, var(--primary) 18%, transparent),
+    color-mix(in oklch, var(--primary) 7%, transparent)
   );
 }
 
-/* 按钮：轻微抬升与按压回弹，主按钮带一道掠过的高光 */
+/* 按钮：抬起、回落、按下时压进黏土 */
 [data-slot="button"] {
   transition-property: color, background-color, border-color, box-shadow, transform, opacity;
+}
+
+[data-slot="button"].bg-secondary,
+[data-slot="button"].bg-background {
+  box-shadow: var(--clay-shadow-flat);
 }
 
 @media (hover: hover) {
@@ -684,7 +627,7 @@ div[class*="rounded-lg"][class*="border"][class*="p-4"] {
 }
 
 [data-slot="button"]:not(:disabled):active {
-  transform: translateY(0) scale(0.985);
+  transform: translateY(1px) scale(0.99);
 }
 
 [data-slot="button"].bg-primary {
@@ -698,64 +641,54 @@ div[class*="rounded-lg"][class*="border"][class*="p-4"] {
   inset: 0;
   border-radius: inherit;
   pointer-events: none;
-  background: linear-gradient(
-    115deg,
-    transparent 22%,
-    oklch(1 0 0 / 24%) 46%,
-    transparent 68%
-  );
-  opacity: 0;
-  transition: opacity 220ms ease;
+  background: linear-gradient(180deg, oklch(1 0 0 / 26%) 0%, transparent 54%);
+  opacity: 0.75;
 }
 
-@media (hover: hover) {
-  [data-slot="button"].bg-primary:not(:disabled):hover::after {
-    opacity: 1;
-  }
+[data-slot="button"].bg-primary:not(:disabled):active {
+  box-shadow:
+    inset 0 3px 7px oklch(0.15 0.04 262 / 38%),
+    inset 0 -1px 2px oklch(1 0 0 / 18%);
 }
 
-/* 输入类控件聚焦：环形光晕叠加内沿高光 */
+/* 输入类控件聚焦：凹槽加深 + 柔和主色环 */
 [data-slot="input"]:focus-visible,
 [data-slot="textarea"]:focus-visible,
 [data-slot="select-trigger"]:focus-visible {
-  border-color: color-mix(in oklch, var(--ring) 55%, transparent);
-  background-color: color-mix(in oklch, var(--glass-control-bg) 88%, transparent);
+  border-color: color-mix(in oklch, var(--ring) 60%, transparent);
+  background-color: color-mix(in oklch, var(--clay-control-bg) 88%, var(--clay-surface));
   box-shadow:
-    inset 0 1px 0 0 var(--glass-highlight),
-    0 0 0 3px color-mix(in oklch, var(--ring) 20%, transparent),
-    0 6px 18px -12px color-mix(in oklch, var(--ring) 60%, transparent);
+    var(--clay-shadow-sunken),
+    0 0 0 3px color-mix(in oklch, var(--ring) 22%, transparent);
 }
 
-/* 徽标/标签：内沿高光，让半透明底色看起来像贴在玻璃上 */
+/* 徽标/标签：小结实的黏土胶囊 */
 [data-slot="badge"] {
   box-shadow:
-    inset 0 1px 0 oklch(1 0 0 / 18%),
-    inset 0 -1px 0 oklch(0 0 0 / 10%);
+    inset 0 1px 1px var(--clay-rim),
+    0 2px 4px -2px color-mix(in oklch, var(--foreground) 25%, transparent);
 }
 
-/* 页签激活条：渐变光条 + 底部发光 */
+/* 页签激活条：一小段实心黏土条 */
 [data-slot="page-tab-indicator"] {
-  background-image: linear-gradient(
-    90deg,
-    transparent,
-    color-mix(in oklch, var(--primary) 85%, white),
-    transparent
-  );
-  box-shadow: 0 0 14px -2px color-mix(in oklch, var(--primary) 70%, transparent);
+  background-color: var(--primary);
+  background-image: linear-gradient(180deg, oklch(1 0 0 / 35%), transparent);
   border-radius: 999px;
+  box-shadow: 0 2px 4px -1px color-mix(in oklch, var(--primary) 65%, transparent);
 }
 
-/* 登录卡：主色环境光把玻璃从背景里托起来 */
-[data-slot="card"].glass-hero {
-  background-color: var(--glass-bg-strong);
+/* 登录卡：更大更蓬松的一块黏土，被主色环境光托起 */
+[data-slot="card"].clay-hero {
+  background-color: var(--clay-surface-strong);
   box-shadow:
-    var(--glass-shadow-raised),
-    0 40px 120px -48px color-mix(in oklch, var(--primary) 58%, transparent);
+    var(--clay-shadow-raised),
+    0 44px 90px -46px color-mix(in oklch, var(--primary) 55%, transparent);
 }
 
-/* 系统减少动态时，去掉位移与过渡，保留静态玻璃质感 */
+/* 系统减少动态时，去掉位移与过渡，保留静态黏土质感 */
 @media (prefers-reduced-motion: reduce) {
   [data-slot="button"],
+  [data-slot="card"],
   [data-slot="card"]::after,
   [data-slot="sidebar-menu-button"],
   [data-slot="table-row"] {
@@ -763,18 +696,8 @@ div[class*="rounded-lg"][class*="border"][class*="p-4"] {
   }
 
   [data-slot="button"]:hover,
-  [data-slot="button"]:active {
+  [data-slot="button"]:active,
+  [data-slot="card"]:hover {
     transform: none !important;
-  }
-}
-
-/* 不支持背景采样时，移除镜面与光条，避免白色脏块 */
-@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  [data-slot="card"]::after,
-  [data-slot="dialog-content"]::before,
-  [data-slot="alert-dialog-content"]::before,
-  [data-slot="sheet-content"]::before,
-  .app-header::after {
-    background: none;
   }
 }

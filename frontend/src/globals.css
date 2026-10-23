@@ -283,8 +283,33 @@
   }
 }
 
-/* 侧边栏选中项：MoviePilot 的 22%→48% 主色渐变 + 36% 描边，色相换成蓝青 */
+/* 浅色模式：背景保持干净的单色底，不使用径向渐变与彩色景深 */
+html:not(.dark) body {
+  background-image: none;
+}
+
+html:not(.dark) body::before {
+  display: none;
+}
+
+/* 侧边栏选中项：浅色用浅主色底 + 深主色文字，暗色用主色渐变底 + 亮文字 */
 [data-slot="sidebar-menu-button"][data-active="true"] {
+  /* 浅色下用纯色平铺，不要渐变 */
+  background-color: color-mix(in oklch, var(--primary) 14%, transparent);
+  background-image: none;
+  box-shadow:
+    inset 0 1px 0 0 oklch(1 0 0 / 40%),
+    inset 0 0 0 1px color-mix(in oklch, var(--primary) 32%, transparent);
+  /* 浅色下选中态是浅蓝底，文字必须压深才可读 */
+  color: color-mix(in oklch, var(--primary) 74%, black);
+}
+
+[data-slot="sidebar-menu-button"][data-active="true"] svg {
+  color: color-mix(in oklch, var(--primary) 85%, black);
+}
+
+/* 暗色下选中态是深底透光，文字回到亮色 */
+.dark [data-slot="sidebar-menu-button"][data-active="true"] {
   background-color: transparent;
   background-image: linear-gradient(
     90deg,
@@ -297,7 +322,7 @@
   color: color-mix(in oklch, var(--primary) 45%, white);
 }
 
-[data-slot="sidebar-menu-button"][data-active="true"] svg {
+.dark [data-slot="sidebar-menu-button"][data-active="true"] svg {
   color: color-mix(in oklch, var(--chart-3) 55%, white);
 }
 

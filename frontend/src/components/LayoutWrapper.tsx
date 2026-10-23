@@ -70,7 +70,7 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
       <SidebarProvider>
           <AppSidebar />
           <div className="flex flex-col w-full min-h-screen pl-0">
-            <header className="w-full border-b border-border flex items-center gap-2 px-3 py-2 flex-nowrap bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+            <header className="app-header w-full border-b flex items-center gap-2 px-3 py-2 flex-nowrap">
               <SidebarTrigger />
               <div className="ml-auto flex items-center gap-1">
                 <button
@@ -111,7 +111,7 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
                 </Menubar>
               </div>
             </header>
-            <main className="flex-1 p-3 sm:p-4 md:p-6 bg-background min-w-0 overflow-x-hidden">
+            <main className="flex-1 p-3 sm:p-4 md:p-6 bg-transparent min-w-0 overflow-x-hidden">
               {children}
             </main>
           </div>

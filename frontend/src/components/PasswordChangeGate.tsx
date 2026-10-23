@@ -76,7 +76,7 @@ export default function PasswordChangeGate({ children }: PasswordChangeGateProps
 
   if (checking) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-background">
+      <div className="flex items-center justify-center min-h-screen bg-transparent">
         <div className="text-center">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto" />
           <p className="mt-2 text-sm text-muted-foreground">检查账号安全状态...</p>
@@ -139,8 +139,8 @@ export default function PasswordChangeGate({ children }: PasswordChangeGateProps
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background p-4">
-      <div className="w-full max-w-lg rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-lg">
+    <div className="flex min-h-screen items-center justify-center bg-transparent p-4">
+      <div data-slot="card" className="w-full max-w-lg rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-lg">
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-amber-500/15 text-amber-600 dark:text-amber-400">
             <ShieldAlert className="h-5 w-5" />

@@ -39,8 +39,8 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex h-screen items-center justify-center bg-background">
-      <div className="w-full max-w-md bg-card text-card-foreground p-8 rounded-2xl shadow-lg border border-border">
+    <div className="flex h-screen items-center justify-center bg-transparent">
+      <div data-slot="card" className="w-full max-w-md bg-card text-card-foreground p-8 rounded-2xl shadow-lg border border-border">
         <div className="flex flex-col items-center mb-6">
           <img
             src="/logo.png"

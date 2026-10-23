@@ -36,7 +36,7 @@ export default function SetupGate({ children }: SetupGateProps) {
 
   if (state === "loading") {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-background">
+      <div className="flex min-h-screen items-center justify-center bg-transparent">
         <div className="text-center">
           <div className="mx-auto h-8 w-8 animate-spin rounded-full border-b-2 border-primary" />
           <p className="mt-2 text-sm text-muted-foreground">检查初始化状态...</p>
@@ -47,8 +47,8 @@ export default function SetupGate({ children }: SetupGateProps) {
 
   if (state === "error") {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-background px-4">
-        <div className="w-full max-w-md rounded-2xl border border-border bg-card p-8 text-center">
+      <div className="flex min-h-screen items-center justify-center bg-transparent px-4">
+        <div data-slot="card" className="w-full max-w-md rounded-2xl border border-border bg-card p-8 text-center">
           <h1 className="text-lg font-semibold">无法连接服务</h1>
           <p className="mt-2 text-sm text-muted-foreground">
             请确认服务已启动后重试。

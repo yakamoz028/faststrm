@@ -58,8 +58,8 @@ export default function SetupPage({ onComplete }: SetupPageProps) {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="w-full max-w-md rounded-2xl border border-border bg-card p-8 text-card-foreground shadow-lg">
+    <div className="flex min-h-screen items-center justify-center bg-transparent px-4">
+      <div data-slot="card" className="w-full max-w-md rounded-2xl border border-border bg-card p-8 text-card-foreground shadow-lg">
         <div className="mb-6 flex flex-col items-center">
           <img src="/logo.png" alt="FastStrm Logo" width={64} height={64} className="mb-4" />
           <h1 className="text-2xl font-bold">创建管理员账号</h1>

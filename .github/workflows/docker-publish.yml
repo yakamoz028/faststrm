@@ -64,6 +64,7 @@ jobs:
           tags: |
             type=raw,value=latest
             type=raw,value=main
+            type=raw,value=1.5.5
             type=sha,prefix=sha-
 
       - name: Build and push Docker image
@@ -77,4 +78,4 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           build-args: |
-            VERSION=main
+            VERSION=1.5.5

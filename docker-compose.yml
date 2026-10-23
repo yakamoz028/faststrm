@@ -7,7 +7,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: wabisabi926/faststrm:latest
+    image: yakamoz028/faststrm:latest
     container_name: faststrm
     ports:
       - "8090:8090"

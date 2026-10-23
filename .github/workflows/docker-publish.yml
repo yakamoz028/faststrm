@@ -1,8 +1,10 @@
 name: Publish Docker Image
 
-# 手动触发：在 GitHub 仓库 Actions 页面点击 Run workflow
+# push 到 main 时自动构建，也可在 Actions 页面手动触发
 # 需要先配置仓库 Secret：DOCKER_PASSWORD（Docker Hub Access Token，Read & Write 权限）
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 concurrency:

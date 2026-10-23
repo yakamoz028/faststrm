@@ -44,171 +44,110 @@
 }
 
 :root {
-  /* 圆角档位：粘土拟态需要更饱满的圆角，内容面 24px 左右 */
-  --radius: 1.15rem;
+  /* 圆角：新拟态依赖大圆角与柔和双向投影 */
+  --radius: 1.1rem;
   color-scheme: light;
-  --background: oklch(0.962 0.012 262);
-  --foreground: oklch(0.315 0.018 280);
-  --card: oklch(0.996 0.004 262);
-  --card-foreground: oklch(0.315 0.018 280);
-  --popover: oklch(0.999 0.003 262);
-  --popover-foreground: oklch(0.315 0.018 280);
+  --background: oklch(0.93 0.008 262);
+  --foreground: oklch(0.32 0.02 275);
+  --card: oklch(0.936 0.008 262);
+  --card-foreground: oklch(0.32 0.02 275);
+  --popover: oklch(0.945 0.008 262);
+  --popover-foreground: oklch(0.32 0.02 275);
   --primary: oklch(0.575 0.165 256);
   --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.944 0.014 262);
-  --secondary-foreground: oklch(0.35 0.016 280);
-  --muted: oklch(0.948 0.012 262);
-  --muted-foreground: oklch(0.48 0.018 272);
-  --accent: oklch(0.94 0.03 250);
+  --secondary: oklch(0.915 0.008 262);
+  --secondary-foreground: oklch(0.36 0.018 278);
+  --muted: oklch(0.912 0.008 262);
+  --muted-foreground: oklch(0.47 0.02 272);
+  --accent: oklch(0.915 0.014 252);
   --accent-foreground: oklch(0.45 0.12 248);
   --destructive: oklch(0.58 0.19 25);
-  --border: oklch(0.9 0.012 262);
-  --input: oklch(0.9 0.014 262);
+  /* 新拟态去掉描边，层次完全交给阴影 */
+  --border: oklch(0 0 0 / 0%);
+  --input: oklch(0 0 0 / 0%);
   --ring: oklch(0.64 0.14 250);
   --chart-1: oklch(0.575 0.165 256);
   --chart-2: oklch(0.68 0.13 225);
   --chart-3: oklch(0.76 0.12 190);
   --chart-4: oklch(0.74 0.13 165);
   --chart-5: oklch(0.68 0.12 210);
-  --sidebar: oklch(0.975 0.01 262);
-  --sidebar-foreground: oklch(0.315 0.018 280);
+  --sidebar: oklch(0.928 0.008 262);
+  --sidebar-foreground: oklch(0.32 0.02 275);
   --sidebar-primary: oklch(0.575 0.165 256);
   --sidebar-primary-foreground: oklch(0.99 0 0);
-  --sidebar-accent: oklch(0.94 0.03 250);
+  --sidebar-accent: oklch(0.915 0.014 252);
   --sidebar-accent-foreground: oklch(0.45 0.12 248);
-  --sidebar-border: oklch(0.9 0.012 262);
+  --sidebar-border: oklch(0 0 0 / 0%);
   --sidebar-ring: oklch(0.64 0.14 250);
-  /* 粘土材质：哑光表面 + 顶部柔光 + 底部内阴影 + 蓬松外投影 */
-  --clay-surface: oklch(0.996 0.004 262);
-  --clay-surface-strong: oklch(1 0 0);
-  --clay-border: oklch(0.898 0.012 262);
-  --clay-border-raised: oklch(0.862 0.014 262);
-  --clay-rim: oklch(1 0 0 / 88%);
-  --clay-gloss: linear-gradient(
-    180deg,
-    oklch(1 0 0 / 46%) 0%,
-    oklch(1 0 0 / 10%) 36%,
-    transparent 62%
-  );
-  --clay-gloss-opacity: 0.5;
-  --clay-shadow:
-    inset 0 2px 2px oklch(1 0 0 / 85%),
-    inset 0 -7px 14px -6px oklch(0.46 0.035 268 / 20%),
-    0 10px 20px -12px oklch(0.46 0.035 268 / 45%),
-    0 26px 44px -28px oklch(0.46 0.035 268 / 38%);
-  --clay-shadow-raised:
-    inset 0 2px 3px oklch(1 0 0 / 90%),
-    inset 0 -9px 18px -8px oklch(0.46 0.035 268 / 22%),
-    0 16px 30px -14px oklch(0.46 0.035 268 / 50%),
-    0 40px 64px -34px oklch(0.46 0.035 268 / 40%);
-  --clay-shadow-hover:
-    inset 0 2px 3px oklch(1 0 0 / 95%),
-    inset 0 -10px 20px -8px oklch(0.46 0.035 268 / 24%),
-    0 20px 34px -14px oklch(0.46 0.035 268 / 54%),
-    0 44px 68px -34px oklch(0.46 0.035 268 / 44%);
-  --clay-shadow-nav:
-    inset 0 1px 1px oklch(1 0 0 / 90%),
-    inset 0 -3px 8px -4px oklch(0.46 0.035 268 / 16%),
-    0 6px 14px -8px oklch(0.46 0.035 268 / 32%);
-  --clay-shadow-sunken:
-    inset 4px 4px 9px oklch(0.46 0.035 268 / 18%),
-    inset -4px -4px 9px oklch(1 0 0 / 85%);
-  --clay-shadow-flat:
-    inset 0 1px 0 oklch(1 0 0 / 75%),
-    0 3px 6px -4px oklch(0.46 0.035 268 / 30%);
-  --clay-control-bg: oklch(0.947 0.01 262);
-  --clay-control-border: oklch(0.885 0.014 262);
-  --clay-btn-primary-shadow:
-    inset 0 2px 2px oklch(1 0 0 / 40%),
-    inset 0 -5px 10px -3px oklch(0.18 0.05 262 / 26%),
-    0 10px 18px -8px color-mix(in oklch, var(--primary) 60%, transparent),
-    0 3px 6px -3px oklch(0.46 0.035 268 / 40%);
-  --ambient-1: 18%;
-  --ambient-2: 14%;
-  --scene-opacity: 0.55;
+  /* 新拟态材质：同色表面 + 左上柔光 / 右下暗影的双向投影 */
+  --neu-surface: oklch(0.936 0.008 262);
+  --neu-light: oklch(1 0 0 / 92%);
+  --neu-dark: oklch(0.45 0.032 268 / 30%);
+  --neu-raised: -6px -6px 14px var(--neu-light), 6px 6px 14px var(--neu-dark);
+  --neu-raised-lg: -10px -10px 24px var(--neu-light), 10px 10px 26px var(--neu-dark);
+  --neu-raised-sm: -3px -3px 7px var(--neu-light), 3px 3px 7px var(--neu-dark);
+  --neu-sunken: inset 4px 4px 9px var(--neu-dark), inset -4px -4px 9px var(--neu-light);
+  --neu-sunken-sm:
+    inset 2px 2px 5px var(--neu-dark), inset -2px -2px 5px var(--neu-light);
+  --neu-nav: -3px -3px 10px var(--neu-light), 3px 3px 14px var(--neu-dark);
+  --neu-btn-primary:
+    -4px -4px 10px var(--neu-light),
+    4px 4px 12px color-mix(in oklch, var(--primary) 42%, transparent);
+  --neu-btn-primary-pressed:
+    inset 4px 4px 9px color-mix(in oklch, var(--primary) 70%, black),
+    inset -4px -4px 9px oklch(1 0 0 / 18%);
 }
 
 .dark {
   color-scheme: dark;
-  --background: oklch(0.215 0.026 264);
-  --foreground: oklch(0.96 0.006 260);
-  --card: oklch(0.272 0.028 264);
-  --card-foreground: oklch(0.96 0.006 260);
-  --popover: oklch(0.305 0.03 264);
-  --popover-foreground: oklch(0.96 0.006 260);
+  --background: oklch(0.265 0.014 265);
+  --foreground: oklch(0.95 0.006 260);
+  --card: oklch(0.278 0.015 265);
+  --card-foreground: oklch(0.95 0.006 260);
+  --popover: oklch(0.29 0.015 265);
+  --popover-foreground: oklch(0.95 0.006 260);
   --primary: oklch(0.665 0.16 255);
   --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.305 0.026 264);
+  --secondary: oklch(0.3 0.014 265);
   --secondary-foreground: oklch(0.93 0.008 260);
-  --muted: oklch(0.288 0.024 264);
-  --muted-foreground: oklch(0.8 0.014 260);
-  --accent: oklch(0.325 0.04 250);
+  --muted: oklch(0.295 0.014 265);
+  --muted-foreground: oklch(0.79 0.012 260);
+  --accent: oklch(0.315 0.02 255);
   --accent-foreground: oklch(0.92 0.045 205);
   --destructive: oklch(0.7 0.16 22);
-  --border: oklch(0.355 0.026 264);
-  --input: oklch(0.345 0.026 264);
+  --border: oklch(0 0 0 / 0%);
+  --input: oklch(0 0 0 / 0%);
   --ring: oklch(0.78 0.13 205);
   --chart-1: oklch(0.665 0.16 255);
   --chart-2: oklch(0.76 0.13 225);
   --chart-3: oklch(0.82 0.12 190);
   --chart-4: oklch(0.8 0.13 165);
   --chart-5: oklch(0.74 0.12 210);
-  --sidebar: oklch(0.2 0.024 264);
+  --sidebar: oklch(0.255 0.014 265);
   --sidebar-foreground: oklch(0.94 0.006 260);
   --sidebar-primary: oklch(0.665 0.16 255);
   --sidebar-primary-foreground: oklch(0.99 0 0);
-  --sidebar-accent: oklch(0.3 0.03 255);
+  --sidebar-accent: oklch(0.315 0.02 255);
   --sidebar-accent-foreground: oklch(0.92 0.045 205);
-  --sidebar-border: oklch(0.34 0.024 264);
+  --sidebar-border: oklch(0 0 0 / 0%);
   --sidebar-ring: oklch(0.78 0.13 205);
-  /* 粘土材质（暗色）：表面抬高半档，靠白色柔光 + 深色内阴影塑造厚度 */
-  --clay-surface: oklch(0.288 0.026 264);
-  --clay-surface-strong: oklch(0.312 0.028 264);
-  --clay-border: oklch(0.372 0.026 264);
-  --clay-border-raised: oklch(0.42 0.03 264);
-  --clay-rim: oklch(1 0 0 / 14%);
-  --clay-gloss: linear-gradient(
-    180deg,
-    oklch(1 0 0 / 12%) 0%,
-    oklch(1 0 0 / 4%) 36%,
-    transparent 62%
-  );
-  --clay-gloss-opacity: 0.9;
-  --clay-shadow:
-    inset 0 1px 1px oklch(1 0 0 / 14%),
-    inset 0 -7px 14px -6px oklch(0.03 0.02 265 / 50%),
-    0 10px 20px -12px oklch(0.02 0.02 265 / 70%),
-    0 26px 44px -28px oklch(0.02 0.02 265 / 65%);
-  --clay-shadow-raised:
-    inset 0 2px 2px oklch(1 0 0 / 18%),
-    inset 0 -9px 18px -8px oklch(0.03 0.02 265 / 55%),
-    0 16px 30px -14px oklch(0.02 0.02 265 / 78%),
-    0 40px 64px -34px oklch(0.02 0.02 265 / 72%);
-  --clay-shadow-hover:
-    inset 0 2px 2px oklch(1 0 0 / 22%),
-    inset 0 -10px 20px -8px oklch(0.03 0.02 265 / 58%),
-    0 20px 34px -14px oklch(0.02 0.02 265 / 82%),
-    0 44px 68px -34px oklch(0.02 0.02 265 / 76%);
-  --clay-shadow-nav:
-    inset 0 1px 1px oklch(1 0 0 / 12%),
-    inset 0 -3px 8px -4px oklch(0.03 0.02 265 / 45%),
-    0 6px 14px -8px oklch(0.02 0.02 265 / 65%);
-  --clay-shadow-sunken:
-    inset 4px 4px 9px oklch(0.03 0.02 265 / 55%),
-    inset -4px -4px 9px oklch(1 0 0 / 7%);
-  --clay-shadow-flat:
-    inset 0 1px 0 oklch(1 0 0 / 10%),
-    0 3px 6px -4px oklch(0.02 0.02 265 / 60%);
-  --clay-control-bg: oklch(0.248 0.024 264);
-  --clay-control-border: oklch(0.36 0.026 264);
-  --clay-btn-primary-shadow:
-    inset 0 2px 2px oklch(1 0 0 / 22%),
-    inset 0 -5px 10px -3px oklch(0.05 0.03 262 / 55%),
-    0 10px 18px -8px color-mix(in oklch, var(--primary) 45%, transparent),
-    0 3px 6px -3px oklch(0.02 0.02 265 / 70%);
-  --ambient-1: 20%;
-  --ambient-2: 16%;
-  --scene-opacity: 0.8;
+  /* 新拟态（暗色）：同色表面，靠极淡白光与深色暗影塑形 */
+  --neu-surface: oklch(0.278 0.015 265);
+  --neu-light: oklch(1 0 0 / 7%);
+  --neu-dark: oklch(0.02 0.01 265 / 65%);
+  --neu-raised: -6px -6px 14px var(--neu-light), 6px 6px 14px var(--neu-dark);
+  --neu-raised-lg: -10px -10px 24px var(--neu-light), 10px 10px 26px var(--neu-dark);
+  --neu-raised-sm: -3px -3px 7px var(--neu-light), 3px 3px 7px var(--neu-dark);
+  --neu-sunken: inset 4px 4px 9px var(--neu-dark), inset -4px -4px 9px var(--neu-light);
+  --neu-sunken-sm:
+    inset 2px 2px 5px var(--neu-dark), inset -2px -2px 5px var(--neu-light);
+  --neu-nav: -3px -3px 10px var(--neu-light), 3px 3px 14px var(--neu-dark);
+  --neu-btn-primary:
+    -4px -4px 10px var(--neu-light),
+    4px 4px 12px color-mix(in oklch, var(--primary) 38%, transparent);
+  --neu-btn-primary-pressed:
+    inset 4px 4px 9px oklch(0.05 0.02 265 / 55%),
+    inset -4px -4px 9px oklch(1 0 0 / 14%);
 }
 
 @layer utilities {
@@ -259,37 +198,9 @@
     font-family: var(--font-sans);
     font-feature-settings: "cv02", "cv03", "cv04", "cv11", "ss01";
     letter-spacing: 0;
+    /* 新拟态：整页同一底色，靠元素的双向投影制造起伏 */
     background-color: var(--background);
-    background-image:
-      radial-gradient(70rem 48rem at 12% -12%, color-mix(in oklch, var(--primary) var(--ambient-1), transparent), transparent 65%),
-      radial-gradient(64rem 46rem at 94% -4%, color-mix(in oklch, var(--chart-3) var(--ambient-2), transparent), transparent 62%);
-    background-attachment: fixed;
-  }
-  /* 背景柔光层：黏土底上晕开的柔色块，提供蓬松的体积感 */
-  body::before {
-    content: "";
-    position: fixed;
-    inset: -20%;
-    z-index: 0;
-    pointer-events: none;
-    background-image:
-      radial-gradient(40rem 34rem at 20% 16%, color-mix(in oklch, var(--chart-3) 14%, transparent), transparent 72%),
-      radial-gradient(46rem 36rem at 82% 10%, color-mix(in oklch, var(--primary) 16%, transparent), transparent 74%),
-      radial-gradient(52rem 40rem at 56% 96%, color-mix(in oklch, var(--chart-2) 11%, transparent), transparent 76%);
-    filter: blur(90px) saturate(108%);
-    opacity: var(--scene-opacity);
-  }
-  /* 黏土颗粒：极轻的噪点，让哑光表面不呆板 */
-  body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    pointer-events: none;
-    opacity: 0.03;
-    mix-blend-mode: overlay;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.7'/%3E%3C/svg%3E");
-    background-size: 180px 180px;
+    background-image: none;
   }
   #root {
     position: relative;
@@ -309,20 +220,12 @@
   }
 }
 
-/* 浅色模式：柔光层压得更淡，保持黏土底的通透与干净 */
-html:not(.dark) body::before {
-  opacity: 0.45;
-}
-
-/* 侧边栏选中项：凸起的黏土胶囊，浅色浅蓝、暗色深蓝都保持文字可读 */
+/* 侧边栏选中项：按下凹陷的胶囊，浅色压深文字、暗色提亮文字 */
 [data-slot="sidebar-menu-button"][data-active="true"] {
-  background-color: color-mix(in oklch, var(--primary) 16%, var(--clay-surface));
+  background-color: color-mix(in oklch, var(--primary) 12%, var(--neu-surface));
   background-image: none;
   border-radius: 0.9rem;
-  box-shadow:
-    inset 0 2px 2px oklch(1 0 0 / 80%),
-    inset 0 -4px 10px -4px oklch(0.46 0.035 268 / 20%),
-    0 3px 8px -4px oklch(0.46 0.035 268 / 40%);
+  box-shadow: var(--neu-sunken-sm);
   /* 浅色下选中态是浅蓝底，文字必须压深才可读 */
   color: color-mix(in oklch, var(--primary) 72%, black);
 }
@@ -331,14 +234,11 @@ html:not(.dark) body::before {
   color: color-mix(in oklch, var(--primary) 85%, black);
 }
 
-/* 暗色下选中态也是凸起胶囊，只是用深色底 + 亮文字 */
+/* 暗色下选中态也是凹陷胶囊，用亮文字保持可读 */
 .dark [data-slot="sidebar-menu-button"][data-active="true"] {
-  background-color: color-mix(in oklch, var(--primary) 30%, var(--clay-surface));
+  background-color: color-mix(in oklch, var(--primary) 26%, var(--neu-surface));
   background-image: none;
-  box-shadow:
-    inset 0 1px 2px oklch(1 0 0 / 18%),
-    inset 0 -5px 12px -5px oklch(0.02 0.02 265 / 60%),
-    0 3px 8px -4px oklch(0.02 0.02 265 / 70%);
+  box-shadow: var(--neu-sunken-sm);
   color: color-mix(in oklch, var(--primary) 40%, white);
 }
 
@@ -346,77 +246,75 @@ html:not(.dark) body::before {
   color: color-mix(in oklch, var(--chart-3) 55%, white);
 }
 
-/* ============ 粘土拟态 ============ */
+/* ============ 新拟态（Neumorphism） ============ */
 
 /* 设置页/通知页等使用 <section class="border rounded-*"> 的面板 */
 section[class*="border"] {
   position: relative;
-  background-color: var(--clay-surface);
-  border-color: var(--clay-border);
-  box-shadow: var(--clay-shadow);
+  background-color: var(--neu-surface);
+  border-color: transparent;
+  box-shadow: var(--neu-raised);
 }
 
-/* 语义化背景容器统一为哑光黏土面，内部不再透出底层颜色 */
+/* 语义化背景容器：与页面同色的表面，描边完全透明 */
 [class~="bg-card"],
 [class~="bg-popover"],
 [class*="bg-background"]:not(body):not(html) {
-  background-color: var(--clay-surface);
-  border-color: var(--clay-border);
+  background-color: var(--neu-surface);
+  border-color: transparent;
 }
 
-/* 面板内的行卡片：浅浅压进黏土里，只留一层薄边和贴地阴影 */
+/* 面板内的行卡片：小一号的凸起，避免层次过重 */
 div[class*="rounded-md"][class*="border"][class*="p-3"],
 div[class*="rounded-md"][class*="border"][class*="p-4"],
 div[class*="rounded-lg"][class*="border"][class*="p-3"],
 div[class*="rounded-lg"][class*="border"][class*="p-4"] {
-  background-color: color-mix(in oklch, var(--clay-surface) 74%, var(--muted));
-  border-color: var(--clay-border);
-  box-shadow: var(--clay-shadow-flat);
+  background-color: var(--neu-surface);
+  border-color: transparent;
+  box-shadow: var(--neu-raised-sm);
 }
 
-/* 次级背景（徽标、表头、悬停态）：调成柔和的粉彩面，而不是透明玻璃 */
+/* 次级背景：同色系里微调明度，不引入描边 */
 [class*="bg-muted"]:not([data-slot="skeleton"]) {
-  background-color: color-mix(in oklch, var(--muted) 72%, var(--clay-surface));
+  background-color: color-mix(in oklch, var(--muted) 86%, var(--neu-surface));
 }
 
 [class*="bg-accent"] {
-  background-color: color-mix(in oklch, var(--accent) 80%, var(--clay-surface));
+  background-color: color-mix(in oklch, var(--accent) 88%, var(--neu-surface));
 }
 
 [class*="bg-secondary"] {
-  background-color: color-mix(in oklch, var(--secondary) 78%, var(--clay-surface));
+  background-color: color-mix(in oklch, var(--secondary) 88%, var(--neu-surface));
 }
 
-/* 卡片：凸起的黏土块，顶部柔光 + 底部内阴影 + 蓬松投影 */
+/* 卡片：左上受光、右下投影的凸起块 */
 [data-slot="card"] {
   position: relative;
-  background-color: var(--clay-surface);
-  border-color: var(--clay-border);
-  box-shadow: var(--clay-shadow);
+  background-color: var(--neu-surface);
+  border-color: transparent;
+  box-shadow: var(--neu-raised);
   transition:
-    box-shadow 220ms cubic-bezier(0.34, 1.4, 0.64, 1),
-    border-color 220ms ease,
-    transform 220ms cubic-bezier(0.34, 1.4, 0.64, 1);
+    box-shadow 220ms cubic-bezier(0.34, 1.3, 0.64, 1),
+    transform 220ms cubic-bezier(0.34, 1.3, 0.64, 1);
 }
 
 @media (hover: hover) {
   [data-slot="card"]:hover {
-    border-color: var(--clay-border-raised);
-    box-shadow: var(--clay-shadow-hover);
+    box-shadow: var(--neu-raised-lg);
     transform: translateY(-2px);
   }
 }
 
-/* 数据表格：与卡片共用同一套黏土表面，表头压一层浅色做层级区分 */
+/* 数据表格：与卡片一致的凸起表面 */
 [data-slot="data-table"] {
   position: relative;
-  background-color: var(--clay-surface);
-  border-color: var(--clay-border);
-  box-shadow: var(--clay-shadow);
+  background-color: var(--neu-surface);
+  border-color: transparent;
+  box-shadow: var(--neu-raised);
 }
 
 [data-slot="table-header"] {
-  background-color: color-mix(in oklch, var(--muted) 62%, var(--clay-surface));
+  background-color: color-mix(in oklch, var(--muted) 72%, var(--neu-surface));
 }
 
 [data-slot="table-head"] {
@@ -426,7 +324,7 @@ div[class*="rounded-lg"][class*="border"][class*="p-4"] {
 }
 
 [data-slot="table-row"] {
-  border-color: color-mix(in oklch, var(--foreground) 8%, transparent);
+  border-color: transparent;
 }
 
 [data-slot="table-row"]:hover {
@@ -434,190 +332,91 @@ div[class*="rounded-lg"][class*="border"][class*="p-4"] {
 }
 
 [data-slot="table-row"][data-state="selected"] {
-  background-color: color-mix(in oklch, var(--primary) 13%, transparent);
+  background-color: color-mix(in oklch, var(--primary) 12%, transparent);
 }
 
-/* 提示条 / 空状态：轻凹陷的黏土底 */
+/* 提示条 / 空状态：轻轻压进底面的浅槽 */
 [class*="bg-muted/30"] {
-  background-color: color-mix(in oklch, var(--clay-surface) 70%, var(--muted));
-  border-color: var(--clay-border);
+  background-color: color-mix(in oklch, var(--muted) 78%, var(--neu-surface));
+  border-color: transparent;
+  box-shadow: var(--neu-sunken-sm);
 }
 
-/* 顶栏：厚实的黏土条，底部一道柔和落地影 */
+/* 顶栏：凸起的同色横条 */
 .app-header {
-  background-color: var(--clay-surface-strong);
-  border-color: var(--clay-border);
-  box-shadow: var(--clay-shadow-nav);
+  background-color: var(--neu-surface);
+  border-color: transparent;
+  box-shadow: var(--neu-nav);
 }
 
-/* 侧边栏：常驻黏土背板，右缘一道压痕 */
+/* 侧边栏：同色背板，只用向外的一道暗影与正文分层 */
 [data-slot="sidebar-inner"] {
-  background-color: var(--clay-surface-strong);
-  box-shadow:
-    inset 0 1px 0 var(--clay-rim),
-    inset -1px 0 0 0 var(--clay-border),
-    6px 0 20px -18px oklch(0.3 0.03 265 / 35%);
+  background-color: var(--neu-surface);
+  box-shadow: 8px 0 22px -14px var(--neu-dark);
 }
 
 [data-slot="sidebar-container"] {
-  border-color: var(--clay-border);
+  border-color: transparent;
 }
 
-/* 弹窗 / 下拉 / 菜单：更高一档的凸起，投影更蓬松 */
+/* 弹窗 / 下拉 / 菜单：更高一档的凸起 */
 [data-slot="dialog-content"],
 [data-slot="alert-dialog-content"],
 [data-slot="select-content"],
 [data-slot="menubar-content"],
 [data-slot="sheet-content"] {
-  background-color: var(--clay-surface-strong);
-  border-color: var(--clay-border-raised);
-  box-shadow: var(--clay-shadow-raised);
+  background-color: var(--neu-surface);
+  border-color: transparent;
+  box-shadow: var(--neu-raised-lg);
 }
 
-/* 遮罩：哑光压暗，不模糊背景 */
+/* 遮罩：单纯压暗，不做模糊 */
 [data-slot="dialog-overlay"],
 [data-slot="alert-dialog-overlay"],
 [data-slot="sheet-overlay"] {
-  background-color: oklch(0.22 0.03 265 / 55%);
+  background-color: oklch(0.2 0.02 265 / 50%);
 }
 
-/* 输入框：压进黏土里的凹槽 */
+/* 输入框：与表面同色，靠内阴影形成凹槽 */
 [data-slot="input"],
 [data-slot="textarea"],
 [data-slot="select-trigger"] {
-  background-color: var(--clay-control-bg);
-  border-color: var(--clay-control-border);
-  box-shadow: var(--clay-shadow-sunken);
+  background-color: var(--neu-surface);
+  border-color: transparent;
+  box-shadow: var(--neu-sunken);
 }
 
-/* 主按钮：有厚度的黏土块，受光在上、暗面在下 */
+/* 主按钮：实色主色块 + 左上柔光、右下主色暗影 */
 [data-slot="button"].bg-primary {
-  background-image: linear-gradient(
-    180deg,
-    color-mix(in oklch, var(--primary) 92%, white) 0%,
-    var(--primary) 58%,
-    color-mix(in oklch, var(--primary) 88%, black) 100%
-  );
-  box-shadow: var(--clay-btn-primary-shadow);
+  background-image: none;
+  background-color: var(--primary);
+  box-shadow: var(--neu-btn-primary);
 }
 
-/* ============ 粘土拟态 v2：厚度 / 柔光 / 按压 ============ */
+/* ============ 新拟态 v2：凸起 / 凹陷 / 按压 ============ */
 
-/* 粘土容器建立独立层叠上下文，让顶部柔光不盖住内部阴影 */
-[data-slot="card"],
-[data-slot="data-table"],
-[data-slot="dialog-content"],
-[data-slot="alert-dialog-content"],
-[data-slot="sheet-content"],
-.app-header,
-[data-slot="sidebar-inner"] {
-  isolation: isolate;
-}
-
-/* 卡片顶面柔光：模拟黏土被上方光源照亮的一层薄亮膜 */
-[data-slot="card"]::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  background: var(--clay-gloss);
-  opacity: var(--clay-gloss-opacity);
-  transition: opacity 220ms ease;
-}
-
-@media (hover: hover) {
-  [data-slot="card"]:hover::after {
-    opacity: 1;
-  }
-}
-
-/* 弹窗 / 抽屉：顶面柔光更亮一档，强化前景层级 */
-[data-slot="dialog-content"]::before,
-[data-slot="alert-dialog-content"]::before,
-[data-slot="sheet-content"]::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  background: var(--clay-gloss);
-  opacity: calc(var(--clay-gloss-opacity) + 0.12);
-}
-
-/* 顶栏：底部一道黏土压边，与正文拉开层级 */
-.app-header {
-  position: relative;
-}
-
-.app-header::after {
-  content: "";
-  position: absolute;
-  inset: auto 12px -1px;
-  height: 2px;
-  border-radius: 999px;
-  pointer-events: none;
-  background: linear-gradient(90deg, transparent, var(--clay-border-raised), transparent);
-}
-
-/* 侧边栏选中项：左侧小凸点，像捏出来的黏土圆珠 */
+/* 侧边栏菜单项：悬停轻抬，选中时凹陷（选中态样式见文件前部） */
 [data-slot="sidebar-menu-button"] {
   position: relative;
   transition:
-    background-color 200ms cubic-bezier(0.34, 1.4, 0.64, 1),
-    box-shadow 200ms cubic-bezier(0.34, 1.4, 0.64, 1),
-    color 200ms cubic-bezier(0.34, 1.4, 0.64, 1);
+    background-color 200ms cubic-bezier(0.34, 1.3, 0.64, 1),
+    box-shadow 200ms cubic-bezier(0.34, 1.3, 0.64, 1),
+    color 200ms cubic-bezier(0.34, 1.3, 0.64, 1);
 }
 
-[data-slot="sidebar-menu-button"][data-active="true"]::before {
-  content: "";
-  position: absolute;
-  left: 3px;
-  top: 50%;
-  translate: 0 -50%;
-  width: 4px;
-  height: 52%;
-  border-radius: 999px;
-  pointer-events: none;
-  background: var(--primary);
-  box-shadow:
-    inset 0 1px 1px oklch(1 0 0 / 45%),
-    0 2px 4px -1px color-mix(in oklch, var(--primary) 60%, transparent);
-}
-
-/* 数据表：表头柔光与行悬停的柔色晕染 */
-[data-slot="table-header"] {
-  background-image: linear-gradient(180deg, oklch(1 0 0 / 10%), transparent);
-}
-
+/* 数据表：行悬停的柔色晕染 */
 [data-slot="table-row"] {
-  transition: background-color 160ms ease, background-image 160ms ease;
+  transition: background-color 160ms ease;
 }
 
-[data-slot="table-row"]:hover {
-  background-image: linear-gradient(
-    90deg,
-    color-mix(in oklch, var(--primary) 10%, transparent),
-    transparent 45%
-  );
-}
-
-[data-slot="table-row"][data-state="selected"] {
-  background-image: linear-gradient(
-    90deg,
-    color-mix(in oklch, var(--primary) 18%, transparent),
-    color-mix(in oklch, var(--primary) 7%, transparent)
-  );
-}
-
-/* 按钮：抬起、回落、按下时压进黏土 */
+/* 按钮：抬起 → 按下时凹陷 */
 [data-slot="button"] {
   transition-property: color, background-color, border-color, box-shadow, transform, opacity;
 }
 
 [data-slot="button"].bg-secondary,
 [data-slot="button"].bg-background {
-  box-shadow: var(--clay-shadow-flat);
+  box-shadow: var(--neu-raised-sm);
 }
 
 @media (hover: hover) {
@@ -628,68 +427,45 @@ div[class*="rounded-lg"][class*="border"][class*="p-4"] {
 
 [data-slot="button"]:not(:disabled):active {
   transform: translateY(1px) scale(0.99);
-}
-
-[data-slot="button"].bg-primary {
-  position: relative;
-  overflow: hidden;
-}
-
-[data-slot="button"].bg-primary::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  background: linear-gradient(180deg, oklch(1 0 0 / 26%) 0%, transparent 54%);
-  opacity: 0.75;
+  box-shadow: var(--neu-sunken-sm);
 }
 
 [data-slot="button"].bg-primary:not(:disabled):active {
-  box-shadow:
-    inset 0 3px 7px oklch(0.15 0.04 262 / 38%),
-    inset 0 -1px 2px oklch(1 0 0 / 18%);
+  box-shadow: var(--neu-btn-primary-pressed);
 }
 
-/* 输入类控件聚焦：凹槽加深 + 柔和主色环 */
+/* 输入类控件聚焦：凹槽加深 + 主色柔环 */
 [data-slot="input"]:focus-visible,
 [data-slot="textarea"]:focus-visible,
 [data-slot="select-trigger"]:focus-visible {
-  border-color: color-mix(in oklch, var(--ring) 60%, transparent);
-  background-color: color-mix(in oklch, var(--clay-control-bg) 88%, var(--clay-surface));
+  border-color: transparent;
   box-shadow:
-    var(--clay-shadow-sunken),
-    0 0 0 3px color-mix(in oklch, var(--ring) 22%, transparent);
+    var(--neu-sunken),
+    0 0 0 3px color-mix(in oklch, var(--ring) 20%, transparent);
 }
 
-/* 徽标/标签：小结实的黏土胶囊 */
+/* 徽标/标签：小的凸起块 */
 [data-slot="badge"] {
-  box-shadow:
-    inset 0 1px 1px var(--clay-rim),
-    0 2px 4px -2px color-mix(in oklch, var(--foreground) 25%, transparent);
+  box-shadow: var(--neu-raised-sm);
 }
 
-/* 页签激活条：一小段实心黏土条 */
+/* 页签激活条：一小段主色凸条 */
 [data-slot="page-tab-indicator"] {
   background-color: var(--primary);
-  background-image: linear-gradient(180deg, oklch(1 0 0 / 35%), transparent);
   border-radius: 999px;
-  box-shadow: 0 2px 4px -1px color-mix(in oklch, var(--primary) 65%, transparent);
+  box-shadow: 0 2px 5px -1px color-mix(in oklch, var(--primary) 55%, transparent);
 }
 
-/* 登录卡：更大更蓬松的一块黏土，被主色环境光托起 */
-[data-slot="card"].clay-hero {
-  background-color: var(--clay-surface-strong);
-  box-shadow:
-    var(--clay-shadow-raised),
-    0 44px 90px -46px color-mix(in oklch, var(--primary) 55%, transparent);
+/* 登录卡：更大一档的凸起 */
+[data-slot="card"].neu-hero {
+  background-color: var(--neu-surface);
+  box-shadow: var(--neu-raised-lg);
 }
 
-/* 系统减少动态时，去掉位移与过渡，保留静态黏土质感 */
+/* 系统减少动态时，去掉位移与过渡 */
 @media (prefers-reduced-motion: reduce) {
   [data-slot="button"],
   [data-slot="card"],
-  [data-slot="card"]::after,
   [data-slot="sidebar-menu-button"],
   [data-slot="table-row"] {
     transition: none !important;

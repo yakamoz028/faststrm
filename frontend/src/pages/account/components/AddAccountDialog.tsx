@@ -362,7 +362,7 @@ export function AddAccountDialog({ account, trigger, onSuccess }: AddAccountDial
                           <Input
                             readOnly
                             value={field.value ? `${field.value.slice(0, 40)}...（长度 ${field.value.length}）` : ""}
-                            className="bg-green-50 text-green-700"
+                            className="bg-green-500/10 text-green-700 dark:text-green-400"
                           />
                         </FormControl>
                       </FormItem>

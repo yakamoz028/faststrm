@@ -94,9 +94,9 @@ export function UpdateCookieDialog({ accountName, trigger, onSuccess }: UpdateCo
         )}
 
         {done && (
-          <Alert className="border-green-200 bg-green-50">
-            <CheckCircle className="h-4 w-4 text-green-600" />
-            <AlertDescription className="text-green-800">
+          <Alert className="border-green-500/30 bg-green-500/10">
+            <CheckCircle className="h-4 w-4 text-green-600 dark:text-green-400" />
+            <AlertDescription className="text-green-700 dark:text-green-300">
               Cookie 更新成功！正在重新检测账号状态...
             </AlertDescription>
           </Alert>

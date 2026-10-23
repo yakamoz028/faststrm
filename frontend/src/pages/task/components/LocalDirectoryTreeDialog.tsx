@@ -110,11 +110,11 @@ export function LocalDirectoryTreeDialog({
         <div className="flex-1 min-h-[300px] max-h-[500px] border rounded-md p-2 overflow-auto">
           {loading ? (
             <div className="flex items-center justify-center py-8">
-              <Loader2 className="w-6 h-6 animate-spin text-gray-400" />
-              <span className="ml-2 text-sm text-gray-500">加载中...</span>
+              <Loader2 className="w-6 h-6 animate-spin text-muted-foreground/60" />
+              <span className="ml-2 text-sm text-muted-foreground">加载中...</span>
             </div>
           ) : tree.length === 0 ? (
-            <div className="flex flex-col items-center justify-center py-8 text-sm text-gray-500 gap-2">
+            <div className="flex flex-col items-center justify-center py-8 text-sm text-muted-foreground gap-2">
               <span>{rootMessage || "暂无目录"}</span>
               {rootMessage && (
                 <span className="text-xs text-muted-foreground">
@@ -141,7 +141,7 @@ export function LocalDirectoryTreeDialog({
         </div>
 
         {selectedPath && (
-          <div className="text-sm text-gray-600 dark:text-gray-300 px-2 py-1 bg-gray-50 dark:bg-gray-800 rounded">
+          <div className="text-sm text-muted-foreground px-2 py-1 bg-muted/50 rounded">
             已选择: <span className="font-medium break-all">{selectedPath}</span>
           </div>
         )}

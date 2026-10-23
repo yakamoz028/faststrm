@@ -46,10 +46,10 @@ export function DeleteTaskDialog({
             <br />
             {task && (
               <>
-                <span className="text-sm text-gray-500 mt-2 block">
+                <span className="text-sm text-muted-foreground mt-2 block">
                   任务ID: {task.id.slice(0, 8)}...
                 </span>
-                <span className="text-sm text-gray-500 mt-1 block">
+                <span className="text-sm text-muted-foreground mt-1 block">
                   目标路径: {task.targetPath}
                 </span>
               </>

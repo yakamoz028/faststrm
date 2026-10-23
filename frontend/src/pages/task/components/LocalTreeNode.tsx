@@ -42,8 +42,8 @@ export function LocalTreeNode(props: LocalTreeNodeProps) {
   return (
     <div key={node.id} className="select-none">
       <div
-        className={`flex items-center gap-1 px-2 py-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer ${
-          isSelected ? "bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-300" : ""
+        className={`flex items-center gap-1 px-2 py-1.5 rounded hover:bg-accent cursor-pointer ${
+          isSelected ? "bg-primary/10 text-primary" : ""
         }`}
         style={{ paddingLeft: `${level * 20 + 8}px` }}
         onClick={(e) => {
@@ -66,22 +66,22 @@ export function LocalTreeNode(props: LocalTreeNodeProps) {
         {node.isDir ? (
           <>
             {isLoading ? (
-              <Loader2 className="w-4 h-4 animate-spin text-gray-400 chevron-icon" />
+              <Loader2 className="w-4 h-4 animate-spin text-muted-foreground/60 chevron-icon" />
             ) : hasLoadedChildren && hasChildrenToShow ? (
               isExpanded ? (
-                <ChevronDown className="w-4 h-4 text-gray-400 chevron-icon" />
+                <ChevronDown className="w-4 h-4 text-muted-foreground/60 chevron-icon" />
               ) : (
-                <ChevronRight className="w-4 h-4 text-gray-400 chevron-icon" />
+                <ChevronRight className="w-4 h-4 text-muted-foreground/60 chevron-icon" />
               )
             ) : hasLoadedChildren && !hasChildrenToShow ? (
               <div className="w-4 h-4" />
             ) : (
-              <ChevronRight className="w-4 h-4 text-gray-400 chevron-icon" />
+              <ChevronRight className="w-4 h-4 text-muted-foreground/60 chevron-icon" />
             )}
             {isDrive ? (
               <HardDrive className="w-4 h-4 text-amber-500 folder-icon" />
             ) : (
-              <Folder className="w-4 h-4 text-blue-500 folder-icon" />
+              <Folder className="w-4 h-4 text-primary folder-icon" />
             )}
           </>
         ) : (

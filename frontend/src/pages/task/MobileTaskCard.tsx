@@ -115,7 +115,7 @@ export function MobileTaskCard(props: MobileTaskCardProps) {
           <Badge variant="outline" className={`text-xs shrink-0 ${isBusy ? ACCOUNT_STYLES.busy : ""}`}>
             {task.accountType}
           </Badge>
-          <span className={`text-xs truncate ${isBusy ? "text-orange-700 font-medium" : ""}`}>
+          <span className={`text-xs truncate ${isBusy ? "text-orange-700 dark:text-orange-400 font-medium" : ""}`}>
             {task.account}
           </span>
           {isBusy && <span className="text-orange-600 text-xs">●</span>}
@@ -203,8 +203,8 @@ export function MobileTaskCard(props: MobileTaskCardProps) {
         {/* Schedule */}
         {enabled && (
           <div className="flex items-center gap-1.5 text-xs">
-            <Clock className="w-3 h-3 text-indigo-500" />
-            <span className="text-indigo-700 font-medium">定时：</span>
+            <Clock className="w-3 h-3 text-primary" />
+            <span className="text-primary font-medium">定时：</span>
             <span className="text-muted-foreground">{schedText}</span>
           </div>
         )}

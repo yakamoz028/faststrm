@@ -49,7 +49,7 @@ export function MappingDetailList({ mappings }: MappingDetailListProps) {
                     return (
                       <span className="break-all">
                         DB：
-                        <Badge variant="outline" className="border-amber-400 text-amber-700 align-middle">
+                        <Badge variant="outline" className="border-amber-400 text-amber-700 dark:text-amber-400 align-middle">
                           {db}（差{diff > 0 ? "+" : ""}{diff}）
                         </Badge>
                       </span>
@@ -60,11 +60,11 @@ export function MappingDetailList({ mappings }: MappingDetailListProps) {
               <span className="break-all">本地 STRM：{m.localStrmCount}</span>
               {/* P2：关联文件列，仅当至少有一个 mapping 提供 associatedFileCount 时才展示 */}
               {m.associatedFileCount !== undefined && (
-                <span className="text-sky-700 break-all">关联：{m.associatedFileCount}</span>
+                <span className="text-sky-700 dark:text-sky-400 break-all">关联：{m.associatedFileCount}</span>
               )}
               <span className="text-destructive break-all">失效：{m.staleStrms.length}</span>
               {(m.unmanagedCount ?? 0) > 0 && (
-                <span className="text-amber-700 break-all" title="手写/第三方/未纳管的 STRM，默认不删除">
+                <span className="text-amber-700 dark:text-amber-400 break-all" title="手写/第三方/未纳管的 STRM，默认不删除">
                   未托管：{m.unmanagedCount}
                 </span>
               )}

@@ -186,8 +186,8 @@ export function DirectoryTreeDialog({
     return (
       <div key={node.id} className="select-none">
         <div
-          className={`flex items-center gap-1 px-2 py-1.5 rounded hover:bg-gray-100 cursor-pointer ${
-            isSelected ? "bg-blue-50 text-blue-600" : ""
+          className={`flex items-center gap-1 px-2 py-1.5 rounded hover:bg-accent cursor-pointer ${
+            isSelected ? "bg-primary/10 text-primary" : ""
           }`}
           style={{ paddingLeft: `${level * 20 + 8}px` }}
           onClick={(e) => {
@@ -206,19 +206,19 @@ export function DirectoryTreeDialog({
           {node.isDir ? (
             <>
               {isLoading ? (
-                <Loader2 className="w-4 h-4 animate-spin text-gray-400 chevron-icon" />
+                <Loader2 className="w-4 h-4 animate-spin text-muted-foreground/60 chevron-icon" />
               ) : hasLoadedChildren && hasChildrenToShow ? (
                 isExpanded ? (
-                  <ChevronDown className="w-4 h-4 text-gray-400 chevron-icon" />
+                  <ChevronDown className="w-4 h-4 text-muted-foreground/60 chevron-icon" />
                 ) : (
-                  <ChevronRight className="w-4 h-4 text-gray-400 chevron-icon" />
+                  <ChevronRight className="w-4 h-4 text-muted-foreground/60 chevron-icon" />
                 )
               ) : hasLoadedChildren && !hasChildrenToShow ? (
                 <div className="w-4 h-4" />
               ) : (
-                <ChevronRight className="w-4 h-4 text-gray-400 chevron-icon" />
+                <ChevronRight className="w-4 h-4 text-muted-foreground/60 chevron-icon" />
               )}
-              <Folder className="w-4 h-4 text-blue-500 folder-icon" />
+              <Folder className="w-4 h-4 text-primary folder-icon" />
             </>
           ) : (
             <div className="w-4 h-4" />
@@ -249,11 +249,11 @@ export function DirectoryTreeDialog({
         <div className="flex-1 min-h-[300px] max-h-[500px] border rounded-md p-2 overflow-auto">
           {loading ? (
             <div className="flex items-center justify-center py-8">
-              <Loader2 className="w-6 h-6 animate-spin text-gray-400" />
-              <span className="ml-2 text-sm text-gray-500">加载中...</span>
+              <Loader2 className="w-6 h-6 animate-spin text-muted-foreground/60" />
+              <span className="ml-2 text-sm text-muted-foreground">加载中...</span>
             </div>
           ) : tree.length === 0 ? (
-            <div className="flex items-center justify-center py-8 text-sm text-gray-500">
+            <div className="flex items-center justify-center py-8 text-sm text-muted-foreground">
               暂无目录
             </div>
           ) : (
@@ -262,7 +262,7 @@ export function DirectoryTreeDialog({
         </div>
 
         {selectedPath && (
-          <div className="text-sm text-gray-600 px-2 py-1 bg-gray-50 rounded">
+          <div className="text-sm text-muted-foreground px-2 py-1 bg-muted/50 rounded">
             已选择: <span className="font-medium">{selectedPath}</span>
           </div>
         )}

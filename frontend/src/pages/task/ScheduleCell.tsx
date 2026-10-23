@@ -15,7 +15,7 @@ export function ScheduleCell({ task }: ScheduleCellProps) {
   const nextRun = task._computedNextRunAt ?? sched?.nextRunAt ?? null;
 
   if (!enabled) {
-    return <span className="text-xs text-slate-400">未配置</span>;
+    return <span className="text-xs text-muted-foreground/70">未配置</span>;
   }
 
   const fmtNext = (() => {
@@ -48,11 +48,11 @@ export function ScheduleCell({ task }: ScheduleCellProps) {
 
   return (
     <div className="flex flex-col gap-0.5">
-      <span className="inline-flex items-center gap-1 text-xs font-medium text-indigo-700 bg-indigo-50 rounded-full px-2 py-0.5 w-fit">
+      <span className="inline-flex items-center gap-1 text-xs font-medium text-primary bg-primary/10 rounded-full px-2 py-0.5 w-fit">
         <Clock className="w-3 h-3" />
         {modeLabel}
       </span>
-      <span className="text-xs text-slate-500">下次: {fmtNext}</span>
+      <span className="text-xs text-muted-foreground">下次: {fmtNext}</span>
     </div>
   );
 }

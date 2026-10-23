@@ -222,7 +222,7 @@ export function QrCodeLogin({ onSuccess, autoStart = false }: QrCodeLoginProps) 
             {CLIENT_OPTIONS.map((opt) => (
               <SelectItem key={opt.value} value={opt.value}>
                 {opt.label}
-                {opt.recommended && <span className="ml-2 text-xs text-green-600">推荐</span>}
+                {opt.recommended && <span className="ml-2 text-xs text-green-600 dark:text-green-400">推荐</span>}
               </SelectItem>
             ))}
           </SelectContent>
@@ -234,10 +234,10 @@ export function QrCodeLogin({ onSuccess, autoStart = false }: QrCodeLoginProps) 
 
       {/* 二维码区域 */}
       {status !== "idle" && (
-        <div className="flex flex-col items-center space-y-3 p-4 border rounded-lg bg-gray-50">
+        <div className="flex flex-col items-center space-y-3 p-4 border rounded-lg bg-muted/40">
           {status === "loading" && (
             <div className="w-[240px] h-[240px] flex items-center justify-center">
-              <Loader2 className="w-8 h-8 animate-spin text-gray-400" />
+              <Loader2 className="w-8 h-8 animate-spin text-muted-foreground/60" />
             </div>
           )}
 
@@ -253,12 +253,12 @@ export function QrCodeLogin({ onSuccess, autoStart = false }: QrCodeLoginProps) 
                 {status === "waiting" ? (
                   <>
                     <QrCode className="w-4 h-4 text-blue-500" />
-                    <span className="text-blue-600">等待扫码... {countdown}s</span>
+                    <span className="text-blue-600 dark:text-blue-400">等待扫码... {countdown}s</span>
                   </>
                 ) : (
                   <>
                     <CheckCircle className="w-4 h-4 text-green-500" />
-                    <span className="text-green-600">已扫码，请在手机上确认</span>
+                    <span className="text-green-600 dark:text-green-400">已扫码，请在手机上确认</span>
                   </>
                 )}
               </div>
@@ -268,7 +268,7 @@ export function QrCodeLogin({ onSuccess, autoStart = false }: QrCodeLoginProps) 
           {status === "success" && (
             <div className="w-[240px] h-[240px] flex flex-col items-center justify-center space-y-2">
               <CheckCircle className="w-12 h-12 text-green-500" />
-              <p className="text-sm font-medium text-green-600">登录成功</p>
+              <p className="text-sm font-medium text-green-600 dark:text-green-400">登录成功</p>
               <p className="text-xs text-muted-foreground">正在获取 Cookie...</p>
             </div>
           )}
@@ -276,7 +276,7 @@ export function QrCodeLogin({ onSuccess, autoStart = false }: QrCodeLoginProps) 
           {status === "expired" && (
             <div className="w-[240px] h-[240px] flex flex-col items-center justify-center space-y-2">
               <AlertCircle className="w-12 h-12 text-orange-500" />
-              <p className="text-sm font-medium text-orange-600">二维码已过期</p>
+              <p className="text-sm font-medium text-orange-600 dark:text-orange-400">二维码已过期</p>
               <Button size="sm" variant="outline" onClick={() => fetchQrcode(clientType)}>
                 <RefreshCw className="w-3.5 h-3.5 mr-1" />
                 刷新二维码
@@ -286,8 +286,8 @@ export function QrCodeLogin({ onSuccess, autoStart = false }: QrCodeLoginProps) 
 
           {status === "cancelled" && (
             <div className="w-[240px] h-[240px] flex flex-col items-center justify-center space-y-2">
-              <AlertCircle className="w-12 h-12 text-gray-500" />
-              <p className="text-sm font-medium text-gray-600">已取消登录</p>
+              <AlertCircle className="w-12 h-12 text-muted-foreground" />
+              <p className="text-sm font-medium text-muted-foreground">已取消登录</p>
               <Button size="sm" variant="outline" onClick={() => fetchQrcode(clientType)}>
                 <RefreshCw className="w-3.5 h-3.5 mr-1" />
                 重新获取二维码
@@ -298,7 +298,7 @@ export function QrCodeLogin({ onSuccess, autoStart = false }: QrCodeLoginProps) 
           {status === "error" && (
             <div className="w-[240px] h-[240px] flex flex-col items-center justify-center space-y-2">
               <AlertCircle className="w-12 h-12 text-red-500" />
-              <p className="text-sm font-medium text-red-600">获取失败</p>
+              <p className="text-sm font-medium text-red-600 dark:text-red-400">获取失败</p>
               <p className="text-xs text-muted-foreground text-center max-w-[200px]">{errorMsg}</p>
               <Button size="sm" variant="outline" onClick={() => fetchQrcode(clientType)}>
                 <RefreshCw className="w-3.5 h-3.5 mr-1" />

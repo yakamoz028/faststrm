@@ -46,7 +46,7 @@ export function ClearDirectoryCell({
             <DialogDescription>
               将清理目标路径下不属于 .strm / 视频 / 字幕 / 元数据扩展名的其他文件，并删除空目录。此操作无法撤销。
               <br />
-              <span className="text-sm text-gray-500 mt-2 block">
+              <span className="text-sm text-muted-foreground mt-2 block">
                 目标路径: {task.targetPath}
               </span>
               <br />

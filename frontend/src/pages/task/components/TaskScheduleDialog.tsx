@@ -154,9 +154,9 @@ export function TaskScheduleDialog({
       <DialogContent className="max-w-[95vw] sm:max-w-[520px]">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
-            <Clock className="w-5 h-5 text-indigo-600" />
+            <Clock className="w-5 h-5 text-primary" />
             定时任务
-            <span className="text-xs text-slate-500 font-normal ml-1">
+            <span className="text-xs text-muted-foreground font-normal ml-1">
               · {task.name || task.id.slice(0, 8)} · {task.account}
             </span>
           </DialogTitle>
@@ -167,13 +167,13 @@ export function TaskScheduleDialog({
 
         <div className="space-y-6 py-2">
           {/* Enable toggle */}
-          <div className="flex items-center justify-between rounded-lg border border-slate-200 bg-slate-50/50 px-4 py-3">
+          <div className="flex items-center justify-between rounded-lg border border-border bg-muted/30 px-4 py-3">
             <div className="flex items-center gap-3">
               <div
                 className={`h-5 w-5 rounded border flex items-center justify-center transition-colors ${
                   enabled
-                    ? "bg-indigo-600 border-indigo-600"
-                    : "bg-white border-slate-300"
+                    ? "bg-primary border-primary"
+                    : "bg-background border-input"
                 }`}
                 onClick={() => setEnabled(!enabled)}
                 role="checkbox"
@@ -185,13 +185,13 @@ export function TaskScheduleDialog({
                   </svg>
                 )}
               </div>
-              <Label className="text-sm font-medium text-slate-800 cursor-pointer" onClick={() => setEnabled(!enabled)}>
+              <Label className="text-sm font-medium cursor-pointer" onClick={() => setEnabled(!enabled)}>
                 启用定时执行
               </Label>
             </div>
             {enabled && (
-              <span className="inline-flex items-center gap-1 text-xs font-medium text-indigo-700 bg-indigo-100 px-2 py-0.5 rounded-full">
-                <span className="w-1.5 h-1.5 bg-indigo-600 rounded-full animate-pulse" />
+              <span className="inline-flex items-center gap-1 text-xs font-medium text-primary bg-primary/10 px-2 py-0.5 rounded-full">
+                <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
                 运行中
               </span>
             )}
@@ -199,7 +199,7 @@ export function TaskScheduleDialog({
 
           {/* Mode selector */}
           <div className={enabled ? "" : "opacity-40 pointer-events-none"}>
-            <Label className="text-sm font-medium text-slate-700 mb-2 block">
+            <Label className="text-sm font-medium text-foreground mb-2 block">
               执行方式
             </Label>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
@@ -219,8 +219,8 @@ export function TaskScheduleDialog({
                     onClick={() => setMode(opt.v)}
                     className={`flex flex-col items-center justify-center gap-1.5 rounded-lg border px-3 py-3 text-sm transition-all ${
                       active
-                        ? "border-indigo-500 bg-indigo-50 text-indigo-700 ring-2 ring-indigo-100"
-                        : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50"
+                        ? "border-primary bg-primary/10 text-primary ring-2 ring-primary/15"
+                        : "border-border bg-background text-muted-foreground hover:border-input hover:bg-accent"
                     }`}
                   >
                     <Icon className="w-4 h-4" />
@@ -234,8 +234,8 @@ export function TaskScheduleDialog({
           {/* Mode-specific config */}
           <div className={enabled ? "" : "opacity-40 pointer-events-none"}>
             {mode === "interval" && (
-              <div className="rounded-lg border border-slate-200 p-4 space-y-3">
-                <Label className="text-sm font-medium text-slate-700">
+              <div className="rounded-lg border border-border p-4 space-y-3">
+                <Label className="text-sm font-medium text-foreground">
                   执行间隔（分钟，最小 5）
                 </Label>
                 <div className="flex items-center gap-3">
@@ -250,7 +250,7 @@ export function TaskScheduleDialog({
                     }
                     className="w-24"
                   />
-                  <span className="text-sm text-slate-500">
+                  <span className="text-sm text-muted-foreground">
                     每 {Math.max(5, intervalMinutes)} 分钟执行一次
                   </span>
                 </div>
@@ -258,8 +258,8 @@ export function TaskScheduleDialog({
             )}
 
             {mode === "daily" && (
-              <div className="rounded-lg border border-slate-200 p-4 space-y-3">
-                <Label className="text-sm font-medium text-slate-700">
+              <div className="rounded-lg border border-border p-4 space-y-3">
+                <Label className="text-sm font-medium text-foreground">
                   每天执行时间
                 </Label>
                 <div className="flex items-center gap-3">
@@ -269,7 +269,7 @@ export function TaskScheduleDialog({
                     onChange={(e) => setTime(e.target.value)}
                     className="w-32"
                   />
-                  <span className="text-sm text-slate-500">
+                  <span className="text-sm text-muted-foreground">
                     每天 {time || "03:00"} 执行
                   </span>
                 </div>
@@ -277,8 +277,8 @@ export function TaskScheduleDialog({
             )}
 
             {mode === "weekly" && (
-              <div className="rounded-lg border border-slate-200 p-4 space-y-3">
-                <Label className="text-sm font-medium text-slate-700">
+              <div className="rounded-lg border border-border p-4 space-y-3">
+                <Label className="text-sm font-medium text-foreground">
                   每周执行时间
                 </Label>
                 <Input
@@ -288,7 +288,7 @@ export function TaskScheduleDialog({
                   className="w-32"
                 />
                 <div>
-                  <Label className="text-sm text-slate-600 mb-2 block">
+                  <Label className="text-sm text-muted-foreground mb-2 block">
                     选择星期（至少选一天）
                   </Label>
                   <div className="flex flex-wrap gap-2">
@@ -301,8 +301,8 @@ export function TaskScheduleDialog({
                           onClick={() => toggleWeekday(w.value)}
                           className={`h-8 w-8 rounded-md border text-sm font-medium transition-all ${
                             checked
-                              ? "bg-indigo-600 border-indigo-600 text-white"
-                              : "bg-white border-slate-200 text-slate-600 hover:border-slate-300"
+                              ? "bg-primary border-primary text-white"
+                              : "bg-background border-border text-muted-foreground hover:border-input"
                           }`}
                         >
                           {w.label}
@@ -321,7 +321,7 @@ export function TaskScheduleDialog({
           )}
 
           {/* 执行说明：定时只决定「何时」触发；每次执行都会完整比对云端清单，未变化的文件不重写 */}
-          <p className="text-xs text-slate-500 leading-relaxed">
+          <p className="text-xs text-muted-foreground leading-relaxed">
             本配置只决定<span className="font-medium">何时</span>触发。每次执行都会完整比对云端清单，
             内容未变化的文件不会重写（不产生多余的 Emby 重扫）。
           </p>

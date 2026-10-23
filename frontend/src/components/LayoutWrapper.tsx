@@ -26,14 +26,14 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
       setUsername(savedUsername);
     }
     const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-      document.documentElement.classList.add("dark");
-      document.documentElement.classList.remove("light");
-      setIsDark(true);
-    } else {
+    if (savedTheme === "light") {
       document.documentElement.classList.remove("dark");
       document.documentElement.classList.add("light");
       setIsDark(false);
+    } else {
+      document.documentElement.classList.add("dark");
+      document.documentElement.classList.remove("light");
+      setIsDark(true);
     }
   }, []);
 

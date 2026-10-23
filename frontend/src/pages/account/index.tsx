@@ -657,7 +657,7 @@ export default function AccountPage() {
               {!pendingDeleteRefs && (
                 <>
                   <br />
-                  <span className="text-sm text-gray-500 mt-2 block">
+                  <span className="text-sm text-muted-foreground mt-2 block">
                     账号类型: {data.find((a) => a.name === deleteDialogOpen)?.accountType}
                   </span>
                 </>

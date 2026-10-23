@@ -101,7 +101,7 @@ export function buildTaskColumns(callbacks: TaskColumnsCallbacks): ColumnDef<Tas
               {task.accountType}
             </Badge>
             <span className={`text-xs font-medium ${
-              isBusy ? "text-orange-700" : ""
+              isBusy ? "text-orange-700 dark:text-orange-400" : ""
             }`}>
               {task.account}
               {isBusy && (

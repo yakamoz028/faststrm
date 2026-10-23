@@ -111,7 +111,7 @@ export function ActionsCell({
             size="sm"
             className={`h-8 w-8 p-0 ${
               task.schedule?.enabled
-                ? "text-indigo-600 hover:text-indigo-700 hover:bg-indigo-50"
+                ? "text-primary hover:text-primary/80 hover:bg-primary/10"
                 : ""
             }`}
             title={

@@ -369,6 +369,45 @@ div[class*="rounded-lg"][class*="border"][class*="p-4"] {
   }
 }
 
+/* 数据表格：与卡片共用同一套玻璃表面，表头叠一层极轻的副色做层级区分 */
+[data-slot="data-table"] {
+  position: relative;
+  background-color: var(--glass-bg);
+  background-image: var(--glass-sheen);
+  border-color: var(--glass-border);
+  -webkit-backdrop-filter: blur(var(--glass-blur-card)) saturate(var(--glass-saturate));
+  backdrop-filter: blur(var(--glass-blur-card)) saturate(var(--glass-saturate));
+  box-shadow: var(--glass-shadow);
+}
+
+[data-slot="table-header"] {
+  background-color: color-mix(in oklch, var(--muted) 46%, transparent);
+}
+
+[data-slot="table-head"] {
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+[data-slot="table-row"] {
+  border-color: color-mix(in oklch, var(--foreground) 7%, transparent);
+}
+
+[data-slot="table-row"]:hover {
+  background-color: color-mix(in oklch, var(--primary) 6%, transparent);
+}
+
+[data-slot="table-row"][data-state="selected"] {
+  background-color: color-mix(in oklch, var(--primary) 10%, transparent);
+}
+
+/* 提示条 / 空状态：统一为轻玻璃底，避免出现不透明的灰色块 */
+[class*="bg-muted/30"] {
+  background-color: color-mix(in oklch, var(--glass-bg) 72%, transparent);
+  border-color: var(--glass-border);
+}
+
 /* 顶栏：悬浮玻璃条，使用更轻的投影避免与正文形成内陷感 */
 .app-header {
   background-color: var(--glass-bg-strong);

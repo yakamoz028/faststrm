@@ -79,10 +79,10 @@
   --sidebar-border: oklch(0.9 0.008 255);
   --sidebar-ring: oklch(0.66 0.15 235);
   /* 液态玻璃材质（参考 MoviePilot glass 主题的克制透光层） */
-  --glass-bg: oklch(1 0 0 / 58%);
-  --glass-bg-strong: oklch(1 0 0 / 74%);
-  --glass-border: oklch(0.35 0.02 282 / 10%);
-  --glass-border-raised: oklch(0.35 0.02 282 / 15%);
+  --glass-bg: oklch(1 0 0 / 62%);
+  --glass-bg-strong: oklch(1 0 0 / 80%);
+  --glass-border: oklch(0.35 0.02 282 / 9%);
+  --glass-border-raised: oklch(0.35 0.02 282 / 16%);
   --glass-highlight: oklch(1 0 0 / 95%);
   --glass-sheen: linear-gradient(
     135deg,
@@ -106,10 +106,18 @@
     inset 0 1px 0 oklch(1 0 0 / 90%);
   --glass-control-bg: oklch(1 0 0 / 72%);
   --glass-control-border: oklch(0.35 0.02 282 / 12%);
-  --glass-blur-card: 18px;
-  --glass-blur-panel: 22px;
-  --glass-blur-raised: 32px;
-  --glass-saturate: 150%;
+  --glass-blur-card: 20px;
+  --glass-blur-panel: 24px;
+  --glass-blur-raised: 34px;
+  --glass-saturate: 155%;
+  /* 镜面折射层：左上角掠射高光，制造玻璃厚度 */
+  --glass-specular: radial-gradient(
+    120% 100% at -10% -10%,
+    oklch(1 0 0 / 55%) 0%,
+    oklch(1 0 0 / 10%) 30%,
+    transparent 55%
+  );
+  --glass-specular-opacity: 0.34;
   --ambient-1: 14%;
   --ambient-2: 12%;
   --scene-opacity: 0.42;
@@ -149,10 +157,10 @@
   --sidebar-border: oklch(1 0 0 / 8%);
   --sidebar-ring: oklch(0.78 0.13 205);
   /* 液态玻璃材质：低不透明度、细白边、单层掠射高光 */
-  --glass-bg: oklch(0.19 0.03 257 / 30%);
-  --glass-bg-strong: oklch(0.17 0.028 257 / 56%);
-  --glass-border: oklch(1 0 0 / 10%);
-  --glass-border-raised: oklch(1 0 0 / 14%);
+  --glass-bg: oklch(0.245 0.036 257 / 42%);
+  --glass-bg-strong: oklch(0.215 0.032 257 / 64%);
+  --glass-border: oklch(1 0 0 / 12%);
+  --glass-border-raised: oklch(1 0 0 / 20%);
   --glass-highlight: oklch(1 0 0 / 20%);
   --glass-sheen: linear-gradient(
     135deg,
@@ -175,14 +183,22 @@
     0 3px 12px oklch(0.08 0.02 258 / 26%),
     inset 0 1px 0 oklch(1 0 0 / 10%);
   --glass-control-bg: oklch(1 0 0 / 7%);
-  --glass-control-border: oklch(1 0 0 / 14%);
-  --glass-blur-card: 18px;
-  --glass-blur-panel: 22px;
-  --glass-blur-raised: 32px;
+  --glass-control-border: oklch(1 0 0 / 16%);
+  --glass-blur-card: 20px;
+  --glass-blur-panel: 24px;
+  --glass-blur-raised: 34px;
   --glass-saturate: 145%;
-  --ambient-1: 16%;
-  --ambient-2: 12%;
-  --scene-opacity: 0.55;
+  /* 暗色镜面：顶部冷白掠射，边缘保持细白高光 */
+  --glass-specular: radial-gradient(
+    125% 105% at -5% -8%,
+    oklch(1 0 0 / 16%) 0%,
+    oklch(1 0 0 / 5%) 30%,
+    transparent 58%
+  );
+  --glass-specular-opacity: 0.85;
+  --ambient-1: 18%;
+  --ambient-2: 14%;
+  --scene-opacity: 0.62;
 }
 
 @layer utilities {
@@ -542,5 +558,223 @@ div[class*="rounded-lg"][class*="border"][class*="p-4"] {
     background-image: none !important;
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
+  }
+}
+
+/* ============ 液态玻璃 v2：镜面折射 / 厚度 / 景深 ============ */
+
+/* 玻璃容器建立独立层叠上下文，避免镜面层与内部阴影互相干扰 */
+[data-slot="card"],
+[data-slot="data-table"],
+[data-slot="dialog-content"],
+[data-slot="alert-dialog-content"],
+[data-slot="sheet-content"],
+.app-header,
+[data-slot="sidebar-inner"] {
+  isolation: isolate;
+}
+
+/* 卡片镜面：左上角掠射高光，悬停时受光增强，形成玻璃厚度 */
+[data-slot="card"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: var(--glass-specular);
+  opacity: var(--glass-specular-opacity);
+  transition: opacity 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (hover: hover) {
+  [data-slot="card"]:hover::after {
+    opacity: 1;
+  }
+}
+
+/* 弹窗/抽屉：镜面更亮一档，强化前景层级 */
+[data-slot="dialog-content"]::before,
+[data-slot="alert-dialog-content"]::before,
+[data-slot="sheet-content"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: var(--glass-specular);
+  opacity: calc(var(--glass-specular-opacity) + 0.15);
+}
+
+/* 顶栏：底部一道冷色细光，与正文拉开层级 */
+.app-header {
+  position: relative;
+}
+
+.app-header::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 -1px;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklch, var(--primary) 45%, transparent),
+    transparent
+  );
+}
+
+/* 侧边栏选中项：左侧光条 + 外发光 */
+[data-slot="sidebar-menu-button"] {
+  position: relative;
+  transition:
+    background-color 200ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 200ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    color 200ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+[data-slot="sidebar-menu-button"][data-active="true"]::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 3px;
+  height: 56%;
+  border-radius: 999px;
+  pointer-events: none;
+  background: var(--primary);
+  box-shadow: 0 0 12px color-mix(in oklch, var(--primary) 65%, transparent);
+}
+
+/* 数据表：表头微光与行悬停渐变，替代生硬的整行色块 */
+[data-slot="table-header"] {
+  background-image: linear-gradient(180deg, oklch(1 0 0 / 6%), transparent);
+}
+
+[data-slot="table-row"] {
+  transition: background-color 160ms ease, background-image 160ms ease;
+}
+
+[data-slot="table-row"]:hover {
+  background-image: linear-gradient(
+    90deg,
+    color-mix(in oklch, var(--primary) 9%, transparent),
+    transparent 45%
+  );
+}
+
+[data-slot="table-row"][data-state="selected"] {
+  background-image: linear-gradient(
+    90deg,
+    color-mix(in oklch, var(--primary) 16%, transparent),
+    color-mix(in oklch, var(--primary) 6%, transparent)
+  );
+}
+
+/* 按钮：轻微抬升与按压回弹，主按钮带一道掠过的高光 */
+[data-slot="button"] {
+  transition-property: color, background-color, border-color, box-shadow, transform, opacity;
+}
+
+@media (hover: hover) {
+  [data-slot="button"]:not(:disabled):hover {
+    transform: translateY(-1px);
+  }
+}
+
+[data-slot="button"]:not(:disabled):active {
+  transform: translateY(0) scale(0.985);
+}
+
+[data-slot="button"].bg-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+[data-slot="button"].bg-primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 22%,
+    oklch(1 0 0 / 24%) 46%,
+    transparent 68%
+  );
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+@media (hover: hover) {
+  [data-slot="button"].bg-primary:not(:disabled):hover::after {
+    opacity: 1;
+  }
+}
+
+/* 输入类控件聚焦：环形光晕叠加内沿高光 */
+[data-slot="input"]:focus-visible,
+[data-slot="textarea"]:focus-visible,
+[data-slot="select-trigger"]:focus-visible {
+  border-color: color-mix(in oklch, var(--ring) 55%, transparent);
+  background-color: color-mix(in oklch, var(--glass-control-bg) 88%, transparent);
+  box-shadow:
+    inset 0 1px 0 0 var(--glass-highlight),
+    0 0 0 3px color-mix(in oklch, var(--ring) 20%, transparent),
+    0 6px 18px -12px color-mix(in oklch, var(--ring) 60%, transparent);
+}
+
+/* 徽标/标签：内沿高光，让半透明底色看起来像贴在玻璃上 */
+[data-slot="badge"] {
+  box-shadow:
+    inset 0 1px 0 oklch(1 0 0 / 18%),
+    inset 0 -1px 0 oklch(0 0 0 / 10%);
+}
+
+/* 页签激活条：渐变光条 + 底部发光 */
+[data-slot="page-tab-indicator"] {
+  background-image: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklch, var(--primary) 85%, white),
+    transparent
+  );
+  box-shadow: 0 0 14px -2px color-mix(in oklch, var(--primary) 70%, transparent);
+  border-radius: 999px;
+}
+
+/* 登录卡：主色环境光把玻璃从背景里托起来 */
+[data-slot="card"].glass-hero {
+  background-color: var(--glass-bg-strong);
+  box-shadow:
+    var(--glass-shadow-raised),
+    0 40px 120px -48px color-mix(in oklch, var(--primary) 58%, transparent);
+}
+
+/* 系统减少动态时，去掉位移与过渡，保留静态玻璃质感 */
+@media (prefers-reduced-motion: reduce) {
+  [data-slot="button"],
+  [data-slot="card"]::after,
+  [data-slot="sidebar-menu-button"],
+  [data-slot="table-row"] {
+    transition: none !important;
+  }
+
+  [data-slot="button"]:hover,
+  [data-slot="button"]:active {
+    transform: none !important;
+  }
+}
+
+/* 不支持背景采样时，移除镜面与光条，避免白色脏块 */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  [data-slot="card"]::after,
+  [data-slot="dialog-content"]::before,
+  [data-slot="alert-dialog-content"]::before,
+  [data-slot="sheet-content"]::before,
+  .app-header::after {
+    background: none;
   }
 }

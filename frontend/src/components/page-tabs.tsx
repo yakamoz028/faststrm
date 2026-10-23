@@ -40,7 +40,10 @@ export function PageTabs<T extends string>({
             {Icon && <Icon className="inline-block h-4 w-4 mr-1" />}
             {tab.label}
             {active && (
-              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-foreground" />
+              <span
+                data-slot="page-tab-indicator"
+                className="absolute bottom-0 left-0 right-0 h-0.5"
+              />
             )}
           </button>
         );
